@@ -9,3 +9,11 @@ To use USi 2.0, one needs a search system, an index, a topic of interest, a list
 At the end of each conversation, USi scores the conversation using conversation-level metrics and taking the user state into account(i.e number of sub-topics explored, user’s current patience level / 1.0 etc).
 
 USi should provide rapid responses and not require heavy compute to use.
+
+## Data Generation
+
+Document collection index is build outside of the system and attached as a volume.
+
+To run, do:
+
+`docker-compose `
