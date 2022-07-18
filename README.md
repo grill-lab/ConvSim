@@ -12,8 +12,8 @@ USi should provide rapid responses and not require heavy compute to use.
 
 ## Data Generation
 
-Document collection index is build outside of the system and attached as a volume.
+Document collection index is built outside of the system and attached as a volume.
 
 To run, do:
 
-`docker-compose `
+`INDEX_PATH=path/to/index docker-compose up --build`

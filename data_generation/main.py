@@ -63,5 +63,5 @@ if __name__ == "__main__":
             # update topic count
             topic_count += 1
     
-    with open(f"{data_output_dir}/conversations.json") as output_file:
+    with open(f"{data_output_dir}/conversations.json", "w") as output_file:
         json.dump(all_topics, output_file, indent=4)
