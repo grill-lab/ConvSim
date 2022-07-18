@@ -1,0 +1,7 @@
+--find-links https://download.pytorch.org/whl/cu113/torch_stable.html
+pyserini
+beautifulsoup4
+lxml
+torch==1.10.0+cu113 
+faiss-cpu
+protobuf==3.20.*
