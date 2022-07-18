@@ -55,10 +55,10 @@ if __name__ == "__main__":
                         "provenance": [passage['id'] for passage in ranked_passages[:3]]
                     })
             
-            all_topics.append({
-                "topic_id": topic_count,
-                "turns": revised_topic 
-            })
+                all_topics.append({
+                    "topic_id": topic_count,
+                    "turns": revised_topic 
+                })
 
             # update topic count
             topic_count += 1
