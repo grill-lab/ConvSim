@@ -161,6 +161,7 @@ cython_debug/
 
 # indexes and protobufs in shared directory
 /shared/topics
+/shared/training_data
 /shared/compiled_protobufs/*
 /shared/models
 /shared/indexes

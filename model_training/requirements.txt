@@ -1,0 +1,8 @@
+--find-links https://download.pytorch.org/whl/cu113/torch_stable.html
+datasets
+transformers
+torch==1.10.0+cu113
+nltk
+numpy
+absl-py
+rouge_score

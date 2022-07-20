@@ -13,6 +13,7 @@ services:
   
   data_generation:
     container_name: data_generation
+    profiles: [ "data_generation" ]
     build:
       context: ./
       dockerfile: data_generation/Dockerfile
@@ -26,6 +27,26 @@ services:
           devices:
             - driver: nvidia
               count: 1
+              capabilities: [gpu]
+    depends_on:
+      - builder
+  
+  model_training:
+    container_name: model_training
+    profiles: [ "model_training" ]
+    build:
+      context: ./
+      dockerfile: model_training/Dockerfile
+    volumes:
+      - ./model_training:/source
+      - ./shared:/shared
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              # count: 1
               capabilities: [gpu]
     depends_on:
       - builder

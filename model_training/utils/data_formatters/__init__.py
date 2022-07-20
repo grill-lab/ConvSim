@@ -1,0 +1,1 @@
+from .curiosity_dialogs_formatter import CuriosityDialogsFormatter
