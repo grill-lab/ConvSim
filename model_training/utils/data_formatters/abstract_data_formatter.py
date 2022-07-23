@@ -1,32 +1,18 @@
 from abc import ABC, abstractclassmethod, abstractmethod
-from datasets import DatasetDict
+import pandas as pd
 
 class AbstractDataFormatter(ABC):
 
     @abstractmethod
-    def convert_to_jsonlines(self, data_path: str) -> None:
+    def convert_to_dataframe(self, data_path: str) -> pd.DataFrame:
         """
-        Takes in a path to a dataset, extract salient information as needed then
-        and writes it out to a jsonlines file
+        Takes in a path to a dataset, and converts it to a pandas dataframe
+        with `source_text` and `target_text` columns as required by simpleT5
 
         Args:
             data_path: Path to dataset
 
         Returns:
-            None
-        """
-        pass
-
-    @abstractmethod
-    def load_dataset(self, data_path: str) -> DatasetDict:
-        """
-        Takes in a path to a dataset already formatted in jsonlines, formats
-        input to model, and creates train and test splits
-
-        Args:
-            data_path: Path to dataset
-
-        Returns:
-            A DatasetDict instance with train and test splits for training
+            Dataframe with `source_text` and `target_text` columns
         """
         pass

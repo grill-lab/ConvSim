@@ -3,3 +3,8 @@ simplet5
 sklearn
 pandas
 torch==1.10.0+cu113
+pyserini
+faiss-cpu
+beautifulsoup4
+lxml
+sentence-transformers
