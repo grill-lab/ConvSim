@@ -1,2 +1,7 @@
-/shared
-/data_generation/env
+docker-compose.yml
+/shared/
+**/__pycache__/
+**/env
+**/lightning_logs
+README.md
+.git
