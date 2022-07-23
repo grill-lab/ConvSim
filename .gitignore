@@ -165,4 +165,5 @@ cython_debug/
 /shared/compiled_protobufs/*
 /shared/models
 /shared/indexes
-/shared/conversations
+/shared/conversations/*
+/model_training/lightning_logs
