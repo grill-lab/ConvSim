@@ -4,7 +4,8 @@ USi 2.0 is a user simulator that anyone (researchers, students, industry practit
 
 USi is configurable. End users can determine the “type” of user they want to simulate in regards to patience levels, strictness, cooperativeness, personality (for user revealment), and topic knowledge.
 
-![rewrite_options(1)](https://user-images.githubusercontent.com/9115027/182564721-7c51e7f4-f871-432a-8967-d13648eedb31.png)
+![usi_initial](https://user-images.githubusercontent.com/9115027/182565577-3f0b5020-2634-43f7-88a3-13ad311dc765.png)
+
 
 To use USi 2.0, one needs a search system, an index, a topic of interest, a list of sub-topics (facets), and a qrels file (with relevance judgements for each facet). Systems should be able to take in an utterance (question, feedback, comment…) from USi and return a response (question, suggestion, answer) and an optional (depending on response type) ranked list of documents (provenance). Search systems should ideally have a summarization component.
 
