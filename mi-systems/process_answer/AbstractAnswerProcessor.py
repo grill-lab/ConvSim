@@ -3,9 +3,9 @@ import pandas as pd
 from abc import ABC, abstractmethod
 from typing import List, Tuple
 
-class AbstractAskCQ(ABC):
+class AbstractAnswerProcessor(ABC):
     def __init__(self):
-        """Abstract class for asking clarifying questions.
+        """Abstract class for processing answers to CQs.
         """
         pass
 
@@ -25,4 +25,11 @@ class AbstractAskCQ(ABC):
             A string of the new query.
         """
         raise NotImplementedError
+
+class DummyAnswerProcessor(AbstractAnswerProcessor):
+    def process_answer(self, clarifying_question: str, answer: str, 
+            query: str = None, ranking: List[str] = None) -> str:
+        """Dummy method that just returns the given answer.
+        """
+        return answer
 

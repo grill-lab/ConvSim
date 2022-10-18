@@ -10,12 +10,12 @@ class AbstractAskCQ(ABC):
         pass
 
     @abstractmethod
-    def ask_cq(self, query: str, ranking: List[str]) -> str:
+    def ask_cq(self, query: str, ranking: List[str] = None) -> str:
         """Ask clarifying question based on query and documents.
 
         Args:
             query: Query string.
-            ranking: Ranked list of documents.
+            ranking (optional): Ranked list of documents. Defaults to None.
         Raises:
             NotImplementedError: Raised if the method is not implemented.
         Returns:
@@ -32,6 +32,7 @@ class SelectCQ(AbstractAskCQ):
             question_pool: Path to a predefined pool of questions.
         """
         self.question_pool = question_pool
+        super().__init__()
             
 
 class GenerateCQ(AbstractAskCQ):
@@ -43,3 +44,13 @@ class GenerateCQ(AbstractAskCQ):
         """
         pass
             
+class DummySelectCQ:
+    def __init__(self, question_pool):
+        self.question_pool = question_pool
+        # super().__init__(question_pool)
+
+    def ask_cq(self, query: str, ranking: List[str] = None) -> str:
+        """Dummy method that always returns the first question in pool.
+        """
+        return self.question_pool[0]
+

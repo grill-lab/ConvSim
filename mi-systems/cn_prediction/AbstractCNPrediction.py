@@ -19,4 +19,9 @@ class AbstractCNPrediction(ABC):
         """
         raise NotImplementedError
 
+class DummyCNPrediction(AbstractCNPrediction):
+    def predict_cn(self, query: str, ranking: List[str] = None) -> bool:
+        """Always return True (i.e., clarifying question is needed.
+        """
+        return True
 

@@ -3,6 +3,7 @@
 import pandas as pd
 
 from abc import ABC, abstractmethod
+from typing import List, Tuple
 
 class AbstractRetriever(ABC):
     def __init__(self, collection):
@@ -11,9 +12,9 @@ class AbstractRetriever(ABC):
         Args:
             collection: Document collection.
         """
-		self.collection = collection
+        self.collection = collection
 
-	# rethink if pd.DataFrame is the best way to store this
+    # rethink if pd.DataFrame is the best way to store this
     @abstractmethod
     def retrieve(self, query: str, num_results: int = 1000) -> pd.DataFrame:
         """Method for initial retrieval.
@@ -39,4 +40,9 @@ class AbstractRetriever(ABC):
         """
         return [self.retrieve(query) for query in queries]
 
+class DummyRetriever(AbstractRetriever):
+    def retrieve(self, query: str, num_results: int = 1000) -> pd.DataFrame:
+        """Dummy method that just returns top num_results from collection.
+        """
+        return self.collection[:num_results]
 
