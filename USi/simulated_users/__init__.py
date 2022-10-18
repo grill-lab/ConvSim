@@ -1,1 +1,0 @@
-from .simulated_user import SimulatedUser
