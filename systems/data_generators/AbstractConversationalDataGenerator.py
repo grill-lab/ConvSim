@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from ..data_classes import ConversationalTurn
+from systems.data_classes import ConversationalTurn
 
 
 class AbstractConversationalDataGenerator(ABC):

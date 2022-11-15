@@ -3,7 +3,7 @@ from .AbstractConversationalDataGenerator import (
 )
 import json
 from ir_measures import read_trec_qrels
-from usi.data_classes import ConversationalTurn
+from systems.data_classes import ConversationalTurn
 
 
 class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
@@ -27,18 +27,18 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
                 information_need = turn.get('information_need')
                 utterance = turn.get("utterance")
                 relevance_judgements = [
-                    qrel for qrel in self.qrels if qrel.doc_id == turn_id]
+                    qrel for qrel in self.qrels if qrel.query_id == turn_id]
                 conversational_history = []
                 for previous_turns in topic['turn'][:index]:
                     previous_user_utterance = previous_turns.get("utterance")
                     previous_system_response = previous_turns.get("response")
-                    conversational_history.append({
-                        "user": previous_user_utterance,
-                        "system": previous_system_response
-                    })
+                    conversational_history += [
+                        {"User": previous_user_utterance}, 
+                        {"System": previous_system_response}
+                    ]
                 yield ConversationalTurn(
                     turn_id=turn_id, information_need=information_need,
-                    utterance=utterance,
+                    user_utterance=utterance,
                     conversation_history=conversational_history,
                     relevance_judgements=relevance_judgements
                 )

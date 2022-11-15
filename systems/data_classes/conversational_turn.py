@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, List, NamedTuple
 
 from ir_measures import Qrel
@@ -12,13 +12,13 @@ class Document:
 
 
 @dataclass
-class ConversationalTurn(NamedTuple):
+class ConversationalTurn:
     turn_id: str  # ideally should be an int, but CAsT year 4 is a string
     information_need: str
     user_utterance: str
     relevance_judgements: List[Qrel]
     rewritten_utterance: str = None
-    conversation_history: List[Dict[str, str]] = []  # TODO: see if it work
+    conversation_history: List[Dict[str, str]] = field(default_factory=list)
     ranking: List[Document] = None
     system_response: str = None
     system_response_type: str = None  # "CQ" response (text)"
