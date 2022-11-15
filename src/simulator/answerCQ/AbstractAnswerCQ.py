@@ -9,15 +9,6 @@ class AbstractAnswerCQ(ABC):
         """Abstract class for answering clarifying questions."""
         pass
 
-    def set_information_need(self, information_need: str) -> None:
-        """Set information need that the answers will be based upon.
-
-        Args:
-            information_need: Textual description of the information need to
-            base the answers on.
-        """
-        self.information_need = information_need
-
     @abstractmethod
     def answer_cq(self, clarifying_question: str, query: str = None) -> str:
         """Answers given clarifying question based on self.information_need.

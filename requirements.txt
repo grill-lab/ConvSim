@@ -1,3 +1,5 @@
 ir-measures
 flake8
 autopep8
+python-dotenv
+openai
