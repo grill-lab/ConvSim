@@ -29,7 +29,7 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
                 relevance_judgements = [
                     qrel for qrel in self.qrels if qrel.doc_id == turn_id]
                 conversational_history = []
-                for previous_turns in turn[:index]:
+                for previous_turns in topic['turn'][:index]:
                     previous_user_utterance = previous_turns.get("utterance")
                     previous_system_response = previous_turns.get("response")
                     conversational_history.append({
