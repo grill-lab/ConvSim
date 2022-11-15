@@ -107,3 +107,5 @@ GitHub.sublime-settings
 
 # Custom
 data/
+utils/.nlg_metrics.py.swp
+.DS_Store

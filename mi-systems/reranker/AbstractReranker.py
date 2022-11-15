@@ -1,26 +1,27 @@
-import pandas as pd
-
 from abc import ABC, abstractmethod
-from typing import List, Tuple
+
+from data_classes.conversational_turn import ConversationalTurn
+from data_classes.ranking import Ranking
+
 
 class AbstractReranker(ABC):
     def __init__(self):
-        """Abstract class for reranking.
-        """
+        """Abstract class for reranking."""
         pass
 
-	# rethink if pd.DataFrame is the best way to store this
     @abstractmethod
-    def rerank(self, query: str, ranking: pd.DataFrame) -> pd.DataFrame:
+    def rerank(
+        self, conversational_turn: ConversationalTurn, ranking: Ranking
+    ) -> Ranking:
         """Method for initial retrieval.
 
         Args:
-            query: Query string.
-            ranking: pandas DataFrame of initial ranking.
+            conversational_turn: A class representing conversational turn,
+                containing query, history, clarfifying question, answer.
+            ranking: Class representing ranking.
         Raises:
             NotImplementedError: Raised if the method is not implemented.
         Returns:
-            Re-ranked list of documents in a trec-like format.
+            Re-ranked list of documents in Ranking class.
         """
         raise NotImplementedError
-
