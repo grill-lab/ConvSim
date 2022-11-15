@@ -33,3 +33,6 @@ class ConversationalTurn:
             ]
         self.system_response = system_response
         self.system_response_type = system_response_type
+    
+    def evaluate_turn(self):
+        pass

@@ -1,4 +1,4 @@
-from systems.data_generators import CAsTY4DataGenerator
+from src.data_generators import CAsTY4DataGenerator
 
 data_generator = CAsTY4DataGenerator()
 

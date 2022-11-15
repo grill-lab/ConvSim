@@ -3,7 +3,7 @@ from .AbstractConversationalDataGenerator import (
 )
 import json
 from ir_measures import read_trec_qrels
-from systems.data_classes import ConversationalTurn
+from src.data_classes import ConversationalTurn
 
 
 class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
