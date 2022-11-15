@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 from typing import List
 
 from data_classes.conversational_turn import ConversationalTurn
-from data_classes.ranking import Ranking
 
 
 class AbstractAskCQ(ABC):
@@ -11,18 +10,15 @@ class AbstractAskCQ(ABC):
         pass
 
     @abstractmethod
-    def ask_cq(
-        self, conversational_turn: ConversationalTurn, ranking: Ranking = None
-    ) -> str:
-        """Ask clarifying question based on query (and other) and documents.
+    def ask_cq(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
+        """Ask clarifying question based on query, ranked list of docs etc.
 
         Args:
             conversational_turn: A class representing conversational turn.
-            ranking (optional): Ranked list of documents. Defaults to None.
         Raises:
             NotImplementedError: Raised if the method is not implemented.
         Returns:
-            A string of clarifiying question to ask.
+            A ConversationalTurn with a clarifying_question attribute updated.
         """
         raise NotImplementedError
 
@@ -55,6 +51,13 @@ class DummySelectCQ:
         self.question_pool = question_pool
         # super().__init__(question_pool)
 
-    def ask_cq(self, query: str, ranking: List[str] = None) -> str:
+    def ask_cq(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
         """Dummy method that always returns the first question in pool."""
-        return self.question_pool[0]
+        # TODO: what else needs to happen? update conversation history?
+
+        question = self.question_pool[0]
+        self.update_history(
+            system_response=question, system_response_type="clarifying_question"
+        )
+
+        return conversational_turn
