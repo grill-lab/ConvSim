@@ -6,9 +6,9 @@ class AbstractConversationalDataGenerator(ABC):
     """
     Abstract Conversational Data Generator Class
     """
-    def __init__(self, dataset_path: str, relevance_judgements_path: str):
-        self.dataset_path = dataset_path
-        self.relevance_judgements_path = relevance_judgements_path
+    def __init__(self):
+        self.topics = None
+        self.qrels = None
 
     @abstractmethod
     def get_turn(self) -> ConversationalTurn:
