@@ -2,7 +2,7 @@ from .AbstractAnswerCQ import AbstractAnswerCQ
 from src.base_transformer.AbstractTransformer import AbstractTransformer
 from src.data_classes.conversational_turn import ConversationalTurn
 import openai
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 import os
 from typing import List
 
