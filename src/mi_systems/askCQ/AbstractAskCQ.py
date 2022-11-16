@@ -1,16 +1,16 @@
 from abc import ABC, abstractmethod
-from typing import List
 
-from data_classes.conversational_turn import ConversationalTurn
+from src.base_module.AbstractModule import AbstractModule
+from src.data_classes.conversational_turn import ConversationalTurn
 
 
-class AbstractAskCQ(ABC):
+class AbstractAskCQ(AbstractModule):
     def __init__(self):
         """Abstract class for asking clarifying questions."""
         pass
 
     @abstractmethod
-    def ask_cq(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
+    def ask_cq(self, conversational_turn: ConversationalTurn) -> str:
         """Ask clarifying question based on query, ranked list of docs etc.
 
         Args:
@@ -18,9 +18,15 @@ class AbstractAskCQ(ABC):
         Raises:
             NotImplementedError: Raised if the method is not implemented.
         Returns:
-            A ConversationalTurn with a clarifying_question attribute updated.
+            A string representing the clarifying question.
         """
         raise NotImplementedError
+
+    def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
+        question = self.ask_cq(conversational_turn)
+        return conversational_turn.update_history(
+            question, participant="System", utterance_type="clarifying_question"
+        )
 
 
 class SelectCQ(AbstractAskCQ):
@@ -46,18 +52,13 @@ class GenerateCQ(AbstractAskCQ):
         pass
 
 
-class DummySelectCQ:
+# TODO: should this inherit from SelectCQ or not?
+class DummySelectCQ(SelectCQ):
     def __init__(self, question_pool):
-        self.question_pool = question_pool
-        # super().__init__(question_pool)
+        super().__init__(question_pool)
 
-    def ask_cq(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
+    def ask_cq(self, conversational_turn: ConversationalTurn) -> str:
         """Dummy method that always returns the first question in pool."""
-        # TODO: what else needs to happen? update conversation history?
-
+        # we just provide the question, .step updates history and all
         question = self.question_pool[0]
-        self.update_history(
-            system_response=question, system_response_type="clarifying_question"
-        )
-
-        return conversational_turn
+        return question

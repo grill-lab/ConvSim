@@ -1,18 +1,18 @@
 from abc import ABC, abstractmethod
 
 from data_classes.conversational_turn import ConversationalTurn
-from data_classes.ranking import Ranking
 
 
+# This module shouldn't inherit AbstractModule perhaps.
+# The ConversationalTurn doesn't need updating
+# It can be a part of AskCQ class.
 class AbstractCNPrediction(ABC):
     def __init__(self):
         """Abstract class for predicting clarification need."""
         pass
 
     @abstractmethod
-    def predict_cn(
-        self, conversational_turn: ConversationalTurn, ranking: Ranking = None
-    ) -> bool:
+    def predict_cn(self, conversational_turn: ConversationalTurn) -> bool:
         """Predict if asking clarifying question is needed or not.
 
         Args:
@@ -23,8 +23,6 @@ class AbstractCNPrediction(ABC):
 
 
 class DummyCNPrediction(AbstractCNPrediction):
-    def predict_cn(
-        self, conversational_turn: ConversationalTurn, ranking: Ranking = None
-    ) -> bool:
-        """Always return True (i.e., clarifying question is needed."""
+    def predict_cn(self, conversational_turn: ConversationalTurn) -> bool:
+        """Always return True (i.e., clarifying question is needed)."""
         return True

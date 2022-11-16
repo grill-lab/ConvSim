@@ -21,12 +21,25 @@ class ConversationalTurn:
     conversation_history: List[Dict[str, str]] = field(default_factory=list)
     ranking: List[Document] = None
     system_response: str = None
-    system_response_type: str = None  # "CQ" response (text)"
+    # One of: ["clarifying_question", "ranking", "rewrite"]
+    system_response_type: str = None
 
     def update_history(
-        self, utterance: str, participant: str, utterance_type: str = None
+        self,
+        utterance: str,
+        participant: str,
+        utterance_type: str = None,
+        ranking: List[Document] = None,
     ) -> None:
-        """Update history, utterance_type only valid when participant is System
+        """Update conversational history and current turn info.
+
+        Args:
+            utterance: new utterance.
+            participant: "System" or "User".
+            utterance_type: only valid when participant is "System".
+            ranking: a new ranking of documents to be updated.
+        Returns:
+            None.
         """
         # it doesn't store initial query to history
         if participant == "User":
@@ -36,6 +49,9 @@ class ConversationalTurn:
             self.conversation_history += [{"System": self.system_response}]
             self.system_response = utterance
             self.system_response_type = utterance_type
+
+            if ranking:
+                self.ranking = ranking
 
     def evaluate_turn(self):
         pass

@@ -1,15 +1,13 @@
-# inspired by iai-group
-
 from abc import ABC, abstractmethod
 from typing import List
 
 import pandas as pd
 
-from data_classes.conversational_turn import ConversationalTurn
-from data_classes.ranking import Ranking
+from data_classes.conversational_turn import ConversationalTurn, Document
+from src.base_module.AbstractModule import AbstractModule
 
 
-class AbstractRetriever(ABC):
+class AbstractRetriever(AbstractModule):
     def __init__(self, collection):
         """Abstract class for initial retrieval.
 
@@ -22,7 +20,7 @@ class AbstractRetriever(ABC):
     @abstractmethod
     def retrieve(
         self, conversational_turn: ConversationalTurn, num_results: int = 1000
-    ) -> Ranking:
+    ) -> List[Document]:
         """Method for initial retrieval.
 
         Args:
@@ -31,22 +29,31 @@ class AbstractRetriever(ABC):
         Raises:
             NotImplementedError: Raised if the method is not implemented.
         Returns:
-            Ranked list of documents in Ranking class.
+            Ranked list of documents.
         """
         raise NotImplementedError
 
     def batch_retrieve(
         self, conversational_turns: List[ConversationalTurn], num_results: int = 1000
-    ) -> List[Ranking]:
+    ) -> List[List[Document]]:
         """Batch retrieval based on self.retrieve.
 
         Args:
             conversational_turns: A list of ConversationalTurn.
             num_results: Number of docs to return (defaults to 1000).
         Returns:
-            List of Rankings.
+            List of list of ranked documents.
         """
         return [self.retrieve(ct, num_results) for ct in conversational_turns]
+
+    def step(
+        self, conversational_turn: ConversationalTurn, num_results: int = 1000
+    ) -> ConversationalTurn:
+        ranking = self.retrieve(conversational_turn, num_results=num_results)
+        # TODO: should we have an utterance here or not? Maybe top1 passage?
+        return conversational_turn.update_history(
+            "", participant="System", utterance_type="ranking", ranking=ranking
+        )
 
 
 class DummyRetriever(AbstractRetriever):
