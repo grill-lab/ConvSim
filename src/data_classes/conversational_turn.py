@@ -69,7 +69,7 @@ class ConversationalTurn:
             if ranking:
                 self.ranking = ranking
 
-    def evaluate_turn(self, measure: str='nDCG@3'):
+    def evaluate_turn(self, measure: str = 'nDCG@3'):
         """Evaluates the ranking in this class based on relevance judgements.
 
         Args:
@@ -86,6 +86,5 @@ class ConversationalTurn:
         score = parsed_measure.calc_aggregate(
             self.relevance_judgements, documents
         )
-        print(score)
         
         return score
