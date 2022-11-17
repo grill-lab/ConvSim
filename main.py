@@ -3,7 +3,7 @@ from src.data_generators import CAsTY4DataGenerator
 from src.simulator.answerCQ import GPT3AnswerCQ
 
 data_generator = CAsTY4DataGenerator()
-pipeline = Pipeline({GPT3AnswerCQ()})
+pipeline = Pipeline([GPT3AnswerCQ()])
 
 for conversational_turn in data_generator.get_turn():
     # dummy information need and CQ, should be parsed from data generator
