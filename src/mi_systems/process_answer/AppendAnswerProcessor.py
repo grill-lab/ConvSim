@@ -13,7 +13,9 @@ class AppendAnswerProcessor(AbstractAnswerProcessor):
         # TODO: check if we get query, CQ, and answer this way
         rewrite = " ".join(
             [
-                conversational_turn.conversation_history[-1]["User"],  # query
+                conversational_turn.conversation_history[-1][
+                    "rewritten_utterance"
+                ],  # query
                 conversational_turn.system_response,  # CQ
                 conversational_turn.user_utterance,  # answer
             ]
