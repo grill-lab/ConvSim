@@ -16,7 +16,7 @@ class ConversationalTurn:
     turn_id: str  # ideally should be an int, but CAsT year 4 is a string
     information_need: str
     user_utterance: str
-    # One of: ["question", "feedback", "comment"]
+    # One of: ["question", "feedback", "comment", "answer"]
     user_utterance_type: str
     relevance_judgements: List[Qrel]
     rewritten_utterance: str = None

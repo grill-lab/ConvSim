@@ -4,7 +4,6 @@ from typing import List
 import openai
 from dotenv import load_dotenv
 
-from src.base_module.AbstractModule import AbstractModule
 from src.data_classes.conversational_turn import ConversationalTurn
 
 from .AbstractAnswerCQ import AbstractAnswerCQ
@@ -13,29 +12,14 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-class GPT3AnswerCQ(AbstractAnswerCQ, AbstractModule):
-    def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
-        response = self.answer_cq(
-            conversational_turn.information_need,
-            conversational_turn.conversation_history,
-            conversational_turn.user_utterance,
-            conversational_turn.system_response,
-        )
-
-        conversational_turn.update_history(response, "User")
-        return conversational_turn
-
-    def answer_cq(
-        self,
-        information_need: str,
-        history: List[str],
-        current_user_turn: str,
-        current_system_response: str,
-    ) -> str:
+class GPT3AnswerCQ(AbstractAnswerCQ):
+    def answer_cq(self, conversational_turn: ConversationalTurn) -> str:
         prompt = self.create_prompt(
-            information_need, history, current_user_turn, current_system_response
+            conversational_turn.information_need, 
+            conversational_turn.conversation_history, 
+            conversational_turn.user_utterance, 
+            conversational_turn.system_response
         )
-        print(prompt)
 
         response = openai.Completion.create(
             engine="text-davinci-002",
@@ -58,10 +42,10 @@ class GPT3AnswerCQ(AbstractAnswerCQ, AbstractModule):
     ) -> str:
         concatenated_history = ""
         for turn in history:
-            if "User" in turn.keys():
-                concatenated_history += f'User: {turn["User"]}\n'
-            elif "System" in turn.keys():
-                concatenated_history += f'System: {turn["System"]}\n'
+            if turn["participant"] == "User":
+                concatenated_history += f'User: {turn["utterance"]}\n'
+            elif turn["participant"] == "System":
+                concatenated_history += f'System: {turn["utterance"]}\n'
 
         concatenated_history += f"User: {current_user_turn}\n"
         concatenated_history += f"System: {current_system_response}\n"
