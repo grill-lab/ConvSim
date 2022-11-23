@@ -10,8 +10,8 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
 
     def __init__(self):
         dataset_path = \
-            'data/cast/year_4/2022_evaluation_topics_flattened_duplicated_v1.0.json'
-        relevance_judgements_path = 'data/cast/year_4/cast2022.qrel'
+            "data/cast/year_4/2022_evaluation_topics_flattened_duplicated_v1.0.json"
+        relevance_judgements_path = "data/cast/year_4/cast2022.qrel"
         with open(dataset_path) as cast_y4_topics_file:
             self.topics = json.load(cast_y4_topics_file)
 
@@ -24,18 +24,37 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
                 turn_id = f"{topic['number']}_{turn['number']}"
                 if turn_id in parsed_turns:
                     continue
-                information_need = turn.get('information_need')
+                information_need = turn.get("information_need")
                 utterance = turn.get("utterance")
                 utterance_type = turn.get("utterance_type")
                 relevance_judgements = [
                     qrel for qrel in self.qrels if qrel.query_id == turn_id]
                 conversational_history = []
-                for previous_turns in topic['turn'][:index]:
-                    previous_user_utterance = previous_turns.get("utterance")
-                    previous_system_response = previous_turns.get("response")
+                for previous_turn in topic['turn'][:index]:
+                    # extract utterance attributes
+                    previous_user_utterance = previous_turn.get("utterance")
+                    previous_user_utterance_rewrite = previous_turn.get(
+                        "automatic_rewritten_utterance")
+                    previous_user_utterance_type = previous_turn.get(
+                        "utterance_type")
+
+                    # extract response attributes
+                    previous_system_response = previous_turn.get("response")
+                    previous_system_response_type = previous_turn.get(
+                        "response_type")
+
                     conversational_history += [
-                        {"User": previous_user_utterance}, 
-                        {"System": previous_system_response}
+                        {
+                            "participant": "User", 
+                            "utterance": previous_user_utterance,
+                            "utterance_type": previous_user_utterance_type, 
+                            "rewritten_utterance": previous_user_utterance_rewrite
+                        },
+                        {
+                            "participant": "System", 
+                            "utterance": previous_system_response,
+                            "utterance_type": previous_system_response_type
+                        }
                     ]
                 yield ConversationalTurn(
                     turn_id=turn_id, information_need=information_need,
