@@ -3,7 +3,7 @@ from typing import List
 
 import pandas as pd
 
-from data_classes.conversational_turn import ConversationalTurn, Document
+from src.data_classes.conversational_turn import ConversationalTurn, Document
 from src.base_module.AbstractModule import AbstractModule
 
 
@@ -50,10 +50,8 @@ class AbstractRetriever(AbstractModule):
         self, conversational_turn: ConversationalTurn, num_results: int = 1000
     ) -> ConversationalTurn:
         ranking = self.retrieve(conversational_turn, num_results=num_results)
-        # TODO: should we have an utterance here or not? Maybe top1 passage?
-        return conversational_turn.update_history(
-            "", participant="System", utterance_type="ranking", ranking=ranking
-        )
+        conversational_turn.ranking = ranking
+        return conversational_turn
 
 
 class DummyRetriever(AbstractRetriever):
