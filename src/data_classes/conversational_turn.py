@@ -23,13 +23,13 @@ class ConversationalTurn:
     conversation_history: List[Dict[str, str]] = field(default_factory=list)
     ranking: List[Document] = None
     system_response: str = None
-    # One of: ["clarifying_question", "ranking"]
+    # One of: ["clarifying_question", "response"]
     system_response_type: str = None
 
     def update_history(
         self,
-        utterance: str,
-        participant: str,
+        utterance: str = None,
+        participant: str = None,
         utterance_type: str = None,
         ranking: List[Document] = None,
     ) -> None:
@@ -43,6 +43,7 @@ class ConversationalTurn:
         Returns:
             None.
         """
+        
         # it doesn't store initial query to history
         if participant == "User":
             self.conversation_history += [

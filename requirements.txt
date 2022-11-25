@@ -5,3 +5,5 @@ python-dotenv
 openai
 pandas
 rank_bm25
+git+https://github.com/castorini/pygaggle.git
+huggingface-hub==0.10.1
