@@ -24,9 +24,10 @@ class AbstractAskCQ(AbstractModule):
 
     def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
         question = self.ask_cq(conversational_turn)
-        return conversational_turn.update_history(
+        conversational_turn.update_history(
             question, participant="System", utterance_type="clarifying_question"
         )
+        return conversational_turn
 
 
 class SelectCQ(AbstractAskCQ):

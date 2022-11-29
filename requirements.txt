@@ -7,3 +7,7 @@ pandas
 rank_bm25
 git+https://github.com/castorini/pygaggle.git
 huggingface-hub==0.10.1
+faiss-gpu
+protobuf==3.20.*
+beautifulsoup4
+lxml

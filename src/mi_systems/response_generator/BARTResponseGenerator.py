@@ -10,7 +10,7 @@ class BARTResponseGenerator(AbstractRespnseGenerator):
         self.summariser = pipeline(
             "summarization", 
             model="facebook/bart-large-cnn", 
-            device = -1 if not torch.cuda.is_available() else 0
+            device=-1 if not torch.cuda.is_available() else 0
         )
     
     def generate_response(self, conversational_turn: ConversationalTurn, k=3) -> str:

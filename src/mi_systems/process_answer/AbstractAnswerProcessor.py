@@ -1,6 +1,6 @@
 from abc import abstractmethod
 
-from data_classes.conversational_turn import ConversationalTurn
+from src.data_classes.conversational_turn import ConversationalTurn
 from src.base_module.AbstractModule import AbstractModule
 
 
@@ -26,9 +26,8 @@ class AbstractAnswerProcessor(AbstractModule):
     def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
         """Process the answer to CQ and update ConvTurn."""
         utterance = self.process_answer(conversational_turn)
-        conversational_turn.update_history(
-            utterance, participant="System", utterance_type="rewrite"
-        )
+        conversational_turn.rewritten_utterance = utterance
+        return conversational_turn
 
 
 class DummyAnswerProcessor(AbstractAnswerProcessor):

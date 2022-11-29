@@ -8,10 +8,7 @@ from src.data_classes import ConversationalTurn
 
 class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
 
-    def __init__(self):
-        dataset_path = \
-            "data/cast/year_4/2022_evaluation_topics_flattened_duplicated_v1.0.json"
-        relevance_judgements_path = "data/cast/year_4/cast2022.qrel"
+    def __init__(self, dataset_path: str, relevance_judgements_path: str) :
         with open(dataset_path) as cast_y4_topics_file:
             self.topics = json.load(cast_y4_topics_file)
 
@@ -26,7 +23,7 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
                     continue
                 information_need = turn.get("information_need")
                 utterance = turn.get("utterance")
-                utterance_type = turn.get("utterance_type")
+                utterance_type = turn.get("utterance_type").lower()
                 relevance_judgements = [
                     qrel for qrel in self.qrels if qrel.query_id == turn_id]
                 conversational_history = []

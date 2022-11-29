@@ -25,6 +25,7 @@ class ConversationalTurn:
     system_response: str = None
     # One of: ["clarifying_question", "response"]
     system_response_type: str = None
+    feedback_rounds: int = 0
 
     def update_history(
         self,
@@ -43,14 +44,14 @@ class ConversationalTurn:
         Returns:
             None.
         """
-        
+
         # it doesn't store initial query to history
         if participant == "User":
             self.conversation_history += [
                 {
-                    "participant": "User", 
-                    "utterance": self.user_utterance, 
-                    "utterance_type": self.user_utterance_type, 
+                    "participant": "User",
+                    "utterance": self.user_utterance,
+                    "utterance_type": self.user_utterance_type,
                     "rewritten_utterance": self.rewritten_utterance
                 }
             ]
@@ -58,12 +59,13 @@ class ConversationalTurn:
             self.user_utterance_type = utterance_type
             self.rewritten_utterance = None
         elif participant == "System":
-            self.conversation_history += [
-                {
-                    "participant": "System", "utterance": self.system_response, 
-                    "utterance_type": self.system_response_type,
-                }
-            ]
+            if self.system_response:
+                self.conversation_history += [
+                    {
+                        "participant": "System", "utterance": self.system_response,
+                        "utterance_type": self.system_response_type,
+                    }
+                ]
             self.system_response = utterance
             self.system_response_type = utterance_type
 
@@ -80,12 +82,12 @@ class ConversationalTurn:
         """
 
         documents = [
-            ScoredDoc(self.turn_id, document.doc_id, document.score) for 
+            ScoredDoc(self.turn_id, document.doc_id, document.score) for
             document in self.ranking
         ]
         parsed_measure = parse_measure(measure)
         score = parsed_measure.calc_aggregate(
             self.relevance_judgements, documents
         )
-        
+
         return score
