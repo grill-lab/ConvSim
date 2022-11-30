@@ -5,6 +5,8 @@ from src.data_classes.conversational_turn import ConversationalTurn, Document
 from typing import List
 import json
 
+from bs4 import BeautifulSoup as bs
+
 
 class SparseRetriever(AbstractRetriever):
 
@@ -33,6 +35,17 @@ class SparseRetriever(AbstractRetriever):
                     parsed_passage = Document(
                         doc_id= f"{search_result.docid}-{passage['id']}",
                         doc_text=passage["body"],
+                        score=search_result.score
+                    )
+                    parsed_passages.append(parsed_passage)
+        elif self.collection_type == "trecweb":
+            for search_result in search_results:
+                parsed_search_result = bs(search_result.raw, "lxml")
+                passages = parsed_search_result.find_all("passage")
+                for passage in passages:
+                    parsed_passage = Document(
+                        doc_id= f"{search_result.docid}-{passage['id']}",
+                        doc_text=passage.text,
                         score=search_result.score
                     )
                     parsed_passages.append(parsed_passage)

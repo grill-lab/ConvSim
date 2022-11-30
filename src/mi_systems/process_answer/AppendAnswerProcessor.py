@@ -1,6 +1,6 @@
-from process_answer.AbstractAnswerProcessor import AbstractAnswerProcessor
+from src.mi_systems.process_answer.AbstractAnswerProcessor import AbstractAnswerProcessor
 
-from data_classes.conversational_turn import ConversationalTurn
+from src.data_classes.conversational_turn import ConversationalTurn
 
 
 class AppendAnswerProcessor(AbstractAnswerProcessor):

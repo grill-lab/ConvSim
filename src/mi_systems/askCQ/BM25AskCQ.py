@@ -1,4 +1,3 @@
-# pip install rank_bm25
 import pandas as pd
 from rank_bm25 import BM25Okapi
 
@@ -8,8 +7,7 @@ from src.mi_systems.askCQ.AbstractAskCQ import SelectCQ
 
 class BM25AskCQ(SelectCQ):
     def __init__(
-        self, question_pool_path: str, model_name: str = "all-mpnet-base-v2"
-    ) -> None:
+        self, question_pool_path: str) -> None:
         """Semantic matching based clarifying question selection class."""
         self.question_pool = self.load_question_pool(question_pool_path)
         self.corpus = self.question_pool.dropna().question.values

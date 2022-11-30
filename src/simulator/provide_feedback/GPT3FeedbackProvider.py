@@ -31,7 +31,9 @@ class GPT3FeedbackProvider(AbstractFeedbackProvider):
             temperature=0.5,
         )
 
-        return response.choices[0].text.strip()
+        response = response.choices[0].text.strip()
+
+        return response.split("\n")[0]
 
     @staticmethod
     def create_prompt(

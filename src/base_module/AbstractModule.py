@@ -25,17 +25,3 @@ class AbstractModule(ABC):
             A ConversationalTurn with updated attributes.
         """
         raise NotImplementedError
-
-
-class Pipeline(AbstractModule):
-    def __init__(self, modules: List[AbstractModule]) -> None:
-        self.modules = modules
-
-    def __call__(self, *input, **kwargs):
-        return self.step(*input, **kwargs)
-
-    def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
-        for module in self.modules:
-            conversational_turn = module.step(conversational_turn)
-
-        return conversational_turn
