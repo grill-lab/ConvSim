@@ -6,6 +6,7 @@ from src.data_classes.conversational_turn import ConversationalTurn
 
 
 class Pipeline(AbstractModule):
+    """Single pass through all conversational modules"""
     def __init__(self, modules: List[AbstractModule]) -> None:
         self.modules = modules
 
@@ -17,6 +18,7 @@ class Pipeline(AbstractModule):
 
 
 class RecursivePipeline(Pipeline):
+    """Allows for multiple feedback rounds"""
 
     def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
         for module in self.modules:

@@ -1,3 +1,7 @@
+"""
+Utility script to add information need annotations to CAsT dataset.
+"""
+
 import json
 import csv
 
