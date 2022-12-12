@@ -109,3 +109,4 @@ GitHub.sublime-settings
 data/
 utils/.nlg_metrics.py.swp
 .DS_Store
+tests/

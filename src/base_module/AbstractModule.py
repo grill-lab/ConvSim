@@ -25,3 +25,4 @@ class AbstractModule(ABC):
             A ConversationalTurn with updated attributes.
         """
         raise NotImplementedError
+        
