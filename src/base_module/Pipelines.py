@@ -7,6 +7,7 @@ from src.data_classes.conversational_turn import ConversationalTurn
 
 class Pipeline(AbstractModule):
     """Single pass through all conversational modules"""
+
     def __init__(self, modules: List[AbstractModule]) -> None:
         self.modules = modules
 
@@ -20,12 +21,17 @@ class Pipeline(AbstractModule):
 class RecursivePipeline(Pipeline):
     """Allows for multiple feedback rounds"""
 
+    def __init__(self, modules: List[AbstractModule], max_feedback_rounds=3, min_ndcg=0.75) -> None:
+        super().__init__(modules)
+        self.max_feedback_rounds = max_feedback_rounds
+        self.min_ndcg = min_ndcg
+
     def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
         for module in self.modules:
             conversational_turn = module.step(conversational_turn)
             if isinstance(module, AbstractFeedbackProvider) and \
-                conversational_turn.feedback_rounds < 3 and \
-                    conversational_turn.evaluate_turn() < 0.5:
+                conversational_turn.feedback_rounds < self.max_feedback_rounds and \
+                    conversational_turn.evaluate_turn() < self.min_ndcg:
                 conversational_turn.feedback_rounds += 1
                 conversational_turn = self.step(conversational_turn)
 

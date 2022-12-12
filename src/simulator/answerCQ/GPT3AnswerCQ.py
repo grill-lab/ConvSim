@@ -1,15 +1,7 @@
-import os
 from typing import List
-
-import openai
-from dotenv import load_dotenv
-
 from src.data_classes.conversational_turn import ConversationalTurn
-
 from .AbstractAnswerCQ import AbstractAnswerCQ
-
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+from src.simulator.utils import ping_GPT3
 
 
 class GPT3AnswerCQ(AbstractAnswerCQ):
@@ -21,18 +13,7 @@ class GPT3AnswerCQ(AbstractAnswerCQ):
             conversational_turn.system_response
         )
 
-        response = openai.Completion.create(
-            engine="text-davinci-002",
-            prompt=prompt,
-            max_tokens=50,
-            top_p=1,
-            frequency_penalty=0.2,
-            presence_penalty=0.5,
-            temperature=0.5,
-        )
-
-        response = response.choices[0].text.strip()
-        return response.split("\n")[0]
+        return ping_GPT3(prompt)
 
     @staticmethod
     def create_prompt(

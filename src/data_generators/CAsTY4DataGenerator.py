@@ -53,6 +53,7 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
                             "utterance_type": previous_system_response_type
                         }
                     ]
+                parsed_turns.add(turn_id)
                 yield ConversationalTurn(
                     turn_id=turn_id, information_need=information_need,
                     user_utterance=utterance,

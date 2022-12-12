@@ -25,5 +25,6 @@ class AbstractRewriter(AbstractModule):
 
     def step(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
         rewrite = self.rewrite(conversational_turn)
-        conversational_turn.rewritten_utterance = rewrite
+        if rewrite:
+            conversational_turn.rewritten_utterance = rewrite
         return conversational_turn
