@@ -1,0 +1,870 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://api.keytrac.net/keytrac.js"></script>
+<script src="https://timbrady.org/turk/TimTurkTools.js"></script>
+<h:form onkeypress="if (event.keyCode == 13) { document.getElementById('btn_search').click(); return false; }">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.4/seedrandom.min.js">
+    </script>
+    <style type="text/css">
+        .Selected {
+            opacity: 0.3;
+            color: #966;
+        }
+
+        @media (max-width: 768px) {
+
+            [class*="col-"] {
+                margin-bottom: 8px;
+            }
+
+        }
+
+        .box_task {
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            padding: 30px 40px;
+
+        }
+
+        .box_examples {
+            margin-bottom: 10px;
+            padding: 4px 4px;
+        }
+
+        .difficulty_very_difficult {
+            background-color: #FF2300;
+        }
+
+        .difficulty_difficult {
+            background-color: #FF9E00;
+        }
+
+        .difficulty_borderline {
+            background-color: #D4FF00;
+        }
+
+        .difficulty_easy {
+            background-color: #D4FF00;
+        }
+
+        .difficulty_very_easy {
+            background-color: #58FF00;
+        }
+
+        .alert {
+            padding: 5px
+        }
+
+        .form_rating .radio {
+            text-align: center;
+        }
+
+        .button_box {
+            border-radius: 7px;
+            margin-top: 5px;
+            justify-content: center;
+        }
+
+        .box_scale {
+            border-radius: 7px;
+            margin-top: 5px;
+            background: -moz-linear-gradient(left, rgba(244, 244, 244, 1) 0%, rgba(244, 244, 244, 0.99) 8%, rgba(255, 158, 158, 0.95) 50%, rgba(226, 90, 90, 0.93) 78%, rgba(170, 42, 42, 0.91) 98%, rgba(170, 42, 42, 0.91) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, rgba(244, 244, 244, 1) 0%, rgba(244, 244, 244, 0.99) 8%, rgba(255, 158, 158, 0.95) 50%, rgba(226, 90, 90, 0.93) 78%, rgba(170, 42, 42, 0.91) 98%, rgba(170, 42, 42, 0.91) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, rgba(244, 244, 244, 1) 0%, rgba(244, 244, 244, 0.99) 8%, rgba(255, 158, 158, 0.95) 50%, rgba(226, 90, 90, 0.93) 78%, rgba(170, 42, 42, 0.91) 98%, rgba(170, 42, 42, 0.91) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#e8aa2a2a', GradientType=1);
+            /* IE6-9 */
+        }
+
+        .box_tweet p {
+            -webkit-user-select: none;
+            /* webkit (safari, chrome) browsers */
+            -moz-user-select: none;
+            /* mozilla browsers */
+            -khtml-user-select: none;
+            /* webkit (konqueror) browsers */
+            -ms-user-select: none;
+            /* IE10+ */
+        }
+
+        .link_examples {
+            color: blue;
+        }
+
+        blockquote {
+            background: #f9f9f9;
+            font-size: 16px;
+        }
+
+        blockquote:before {
+            quotes: "\201C" "\2018";
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 5px 5px;
+        }
+
+        span.selected {
+            background-color: #D3D3D3;
+        }
+
+        .btn-with-margin {
+            margin-right: 2px;
+            margin-bottom: 2px;
+        }
+
+        .img-thumbnail-padding {
+            padding: 1px;
+        }
+
+        .bt-padding {
+            padding-top: 2px;
+            padding-right: 2px;
+            padding-bottom: 2px;
+            padding-left: 2px;
+        }
+
+        .awesomplete [hidden] {
+            display: none;
+        }
+
+        .awesomplete .visually-hidden {
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        .awesomplete {
+            display: inline-block;
+            position: relative;
+        }
+
+        .awesomplete>input {
+            display: block;
+        }
+
+        .awesomplete>ul {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            min-width: 100%;
+            box-sizing: border-box;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #fff;
+        }
+
+        .awesomplete>ul:empty {
+            display: none;
+        }
+
+        .awesomplete>ul {
+            border-radius: .3em;
+            margin: .2em 0 0;
+            background: hsla(0, 0%, 100%, .9);
+            background: linear-gradient(to bottom right, white, hsla(0, 0%, 100%, .8));
+            border: 1px solid rgba(0, 0, 0, .3);
+            box-shadow: .05em .2em .6em rgba(0, 0, 0, .2);
+            text-shadow: none;
+        }
+
+        @supports (transform: scale(0)) {
+            .awesomplete>ul {
+                transition: .3s cubic-bezier(.4, .2, .5, 1.4);
+                transform-origin: 1.43em -.43em;
+            }
+
+            .awesomplete>ul[hidden],
+            .awesomplete>ul:empty {
+                opacity: 0;
+                transform: scale(0);
+                display: block;
+                transition-timing-function: ease;
+            }
+        }
+
+        /* Pointer */
+        .awesomplete>ul:before {
+            content: "";
+            position: absolute;
+            top: -.43em;
+            left: 1em;
+            width: 0;
+            height: 0;
+            padding: .4em;
+            background: white;
+            border: inherit;
+            border-right: 0;
+            border-bottom: 0;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .awesomplete>ul>li {
+            position: relative;
+            padding: .2em .5em;
+            cursor: pointer;
+        }
+
+        .awesomplete>ul>li:hover {
+            background: hsl(200, 40%, 80%);
+            color: black;
+        }
+
+        .awesomplete>ul>li[aria-selected="true"] {
+            background: hsl(205, 40%, 40%);
+            color: white;
+        }
+
+        .awesomplete mark {
+            background: hsl(65, 100%, 50%);
+        }
+
+        .awesomplete li:hover mark {
+            background: hsl(68, 100%, 41%);
+        }
+
+        .awesomplete li[aria-selected="true"] mark {
+            background: hsl(86, 100%, 21%);
+            color: inherit;
+        }
+
+        /*# sourceMappingURL=awesomplete.css.map */
+    </style>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+
+    <section class="container" id="instruction_section">
+        <!-- Instructions -->
+        <fieldset>
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="panel panel-primary">
+                        <!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature --><a
+                            class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>useful
+                                answers</strong> <span class="collapse-text">(Click to collapse)</span> </a>
+                        <div class="panel-body" id="instructionBody">
+
+
+                            <h4><strong>Task description</strong></h4>
+                            <p>Welcome and thank you for your interest.
+                                In this HIT, we would like to estimate how much are responses generated by computer
+                                system useful.
+                                We assume we ask the system a question about the topic of the conversation. The system
+                                then answers the question, in line with the actual topic of the conversation.
+                                Your task is to decide whether the answer is actually in line with the topic of the
+                                conversation and if it is helpful to clarify the actual topic.
+                                We also have an answer by a human, and you are not aware which one is which during the
+                                assignment.
+                            </p>
+                            <p>You will be given two answers, one generated by a system, one by a human. Your task is to
+                                decide which answer is more useful and human-like.
+                                Each HIT comes with a description of the topic that the system/human is interested to
+                                talk about and a question that is asked to the system/human.
+                                You will be shown the topic and the question as well, to better understand the context
+                                of the answer.
+                                You should evaluate whether the answers are in line with the proposed topic of the
+                                conversation or they drift off topic and are not helpful.</p>
+
+                            <h4><strong>What you need to do:</strong></h4>
+                            Please follow the steps below:
+                            <ul>
+                                <li>Read the conversation topic and the prompted question.</li>
+                                <li>Read the two generated answers.</li>
+                                <li>Choose the more useful answer, i.e., one that is in line with the topic of the
+                                    conversation.</li>
+                                <li>Press a button corresponding to the more useful answer.</li>
+                                <li> A sample result and judgement buttons can be seen below:
+                                    <div class="row">
+                                        <div class="col col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12"
+                                            style="">
+                                            <div class="panel-body panel-info panel">
+                                                <div class="row">
+                                                    <div
+                                                        class="col-sm-12 col-12 col-md-12 col-lg-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0\">
+                                                        <div class="row">
+                                                            <div class="col-sm-11 col-11 col-md-11 col-lg-11\">
+                                                                <h4>
+                                                                    <a class="resultLink" href="">Topic: "Find
+                                                                        information about human memory."</a>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <!--<div class="row">-->
+                                                        <!--	<div class="col-sm-12 col-12 col-md-12 col-lg-12">-->
+                                                        <!--		<cite style="color:#006621; font-style: normal;">https://www.rivm.nl/en/novel-coronavirus-covid-19/current-information</cite>-->
+                                                        <!--	</div>-->
+                                                        <!--</div>-->
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-12 col-md-12 col-lg-12">
+                                                                <div class="relative">
+                                                                    <p><strong>Question: "Are you interested in computer
+                                                                            memory?"</strong></p>
+                                                                    <p>Answer 1: "no, I am interested in human memory"
+                                                                    </p>
+                                                                    <p>Answer 2: "yes, I am</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col col-lg-4 col-md-4 col-sm-12">
+                                                        <button class="btn btn-success btn-block" type="button">Answer 1
+                                                            is more useful.</button>
+                                                    </div>
+                                                    <div class="col col-lg-4 col-md-4 col-sm-12">
+                                                        <button class="btn btn-info btn-block" type="button">Answer 2 is
+                                                            more useful.</button>
+                                                    </div>
+                                                    <!--<div class="col col-lg-4 col-md-4 col-sm-12">-->
+                                                    <!--	<button class="btn btn-danger btn-block" type="button">NOT useful</button>-->
+                                                    <!--</div>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </li>
+
+                                <li>Decide whether the Answer 1 or Answer 2 is more useful by the criteria described
+                                    above, and click on the relevant button:</li>
+                                <ul>
+                                    <li><button class="btn btn-success" type="button">Answer 1 is more useful.</button>:
+                                        Select if Answer 1 appears to be more useful, i.e., it is more in line with the
+                                        topic of interest of the conversation, compared to Answer 2.</li>
+                                    <li><button class="btn btn-info" type="button">Answer 2 is more useful.</button>:
+                                        Select if Answer 2 appears to be more useful, i.e., it is more in line with the
+                                        topic of interest of the conversation, compared to Answer 1.</li>
+                                </ul>
+                            </ul>
+
+                            <h4><strong>Example:</strong></h4>
+                            <h5>Example 1</h5>
+                            <p>Topic: "Find information about human memory."</p>
+                            <p>Question: "Are you interested in memory loss?"</p>
+                            <p>Answer 1: "no, i am interested in computer memory"</p>
+                            <p>Answer 2: "yes, and more information about human memory"</p>
+                            <p>Correct: <button class="btn btn-info" type="button">Answer 2 is more useful.</button>.
+                                Answer 1 is going off topic as it claims interest in "computer memory", but the actual
+                                topic of the conversation should be "human memory", as stated by the Topic description.
+                            </p>
+
+                            <h5>Example 2</h5>
+                            <p>Topic: "Find the homepage of the Voyager Learning Programs."</p>
+                            <p>Question: "Do you want to know where to get a book on the Voyager?"</p>
+                            <p>Answer 1: "yes"</p>
+                            <p>Answer 2: "no, i am looking for voyager learning programs"</p>
+                            <p>Correct: <button class="btn btn-info" type="button">Answer 2 is more useful.</button>
+                                Answer 1 responds "yes" to the question about book on the Voyager, while the topic
+                                should be Voyager Learning Programs. Thus, it is missleading and not useful.</p>
+
+                            <h5>Example 3</h5>
+                            <p>Topic: "Find information on kiwi fruit."</p>
+                            <p>Question: "Are you interested in kiwi bird?"</p>
+                            <p>Answer 1: "no"</p>
+                            <p>Answer 2: "yes i am"</p>
+                            <p><button class="btn btn-success" type="button">Answer 1 is more useful.</button> Answer 2
+                                is confirming the user is interested in kiwi bird, while in reality, the topic of
+                                interest should be kiwi fruit.</p>
+
+                            <!--<h5>Example 4</h5>-->
+                            <!--<p>Topic: "Find information on kiwi fruit."</p>-->
+                            <!--<p>Question: "Are you interested in kiwi fruit?"</p>-->
+                            <!--    <p>Answer 1: "yes i am looking for president moon"</p>-->
+                            <!--  <p>Answer 2: "yes"</p>-->
+                            <!--  <p><button class="btn btn-info" type="button">Answer 2 is more useful.</button> Answer 1 gibberish. It doesn't matter that Answer 2 is short - just one word.</p>-->
+
+
+                            <div class="row"></div>
+
+                            <h4><strong>Acceptance requirements:</strong></h4>
+
+                            <ul>
+                                <li>Each HIT contains 5 answer pairs. Carefully choose the more useful answer. Another
+                                    pair will appear as soon as you click on a button.</li>
+                                <li>Make 5 HITs in total, resulting in assessment of 25 answer pairs. We limit the
+                                    number of HITs per worker to 5.
+
+                                </li>
+                            </ul>
+
+                            <h4><strong>How to get rejected:</strong></h4>
+                            There are a few things that can go wrong in this HIT:
+                            <ul>
+                                <li>Wrong usefulness assessment on test results -- we will show you a few answer pairs
+                                    for which we already know which one is more useful. We include them to encourage
+                                    people to avoid randomly clicking on the buttons.</li>
+                                <li>Careless and very fast submission -- we track all mouse movements and clicks on the
+                                    page. So, if someone completes the task carelessly and very fast, it will be easy to
+                                    detect. </li>
+                            </ul>
+
+
+                            <p style="text-align: center;"><button class="btn btn-success" id="hideButton"
+                                    type="button">Click here to hide the instructions</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </section>
+
+    <section id="search_section" hidden="false" class="container">
+
+        <fieldset>
+
+            <div class="panel panel-info" id="instructionBody1">
+                <div class="panel-heading">useful Answers</div>
+
+                <div class="panel-body" style="padding: 20;">
+
+                    <div class="form-group">
+
+                        <div class="col-lg-2 col-sm-12 col-md-2 col-xs-12">
+                            <center>
+                                <button type="button" class="btn btn-primary btn-block" id="btn_search" type="button"
+                                    disabled="False">Start</button>
+                            </center>
+                        </div>
+                        <br> <br> <br> <br>
+                        <ul id="search_result_container" hidden="true" style="list-style-type:none;">
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+
+        <!--   <div class="row">-->
+        <!--	<hr />			-->
+        <!--	<div class="form-group">-->
+        <!--		<label for="comments">Comment (optional)</label>-->
+        <!--		<textarea class="form-control" id="comments" name="comments" placeholder="Please leave a comment if you have any suggestions, questions or remarks" rows="3"></textarea> -->
+        <!--		</div>-->
+
+        <!--	<hr />-->
+        <!--</div>-->
+
+        <input id="deviceType" name="deviceType" type="hidden" value="" />
+        <input id="screenSize" name="screenSize" type="hidden" value="" />
+        <input id="shuffledList" name="shuffledList" type="hidden" value="" />
+        <input id="mouse_hover_events" name="mouse_hover_events" type="hidden" value="" />
+        <input id="mouse_click_events" name="mouse_click_events" type="hidden" value="" />
+        <input id="relevance_assessments" name="relevance_assessments" type="hidden" value="" />
+        <input id="query_strings" name="query_strings" type="hidden" value="" />
+
+        <!-- <p style="text-align: center;"><button class="btn btn-success" id="hideButton" type="button">Submit</button></p>
+ -->
+        <!-- <div id="questions_frame"> fjsdlkfld </div> -->
+        <!-- End Content Body -->
+    </section>
+    <!-- close container -->
+    <style type="text/css">
+        fieldset {
+            padding: 10px;
+            background: #fbfbfb;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <script>
+
+        var isMobile = false; //initiate as false
+        // device detection
+        if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+            || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4))) isMobile = true;
+
+        var startTime = new Date().getTime();
+
+        glob_dict_timestamps = {
+            'start': new Date().getTime(),
+            'tasks': {}
+        }
+        glob_dict_answers = {
+            'start': new Date().getTime(),
+            'tasks': {}
+        }
+
+    </script>
+
+    <script>
+        const max_results = 5;
+        // const min_queries = 0;
+        // const min_answers = 0;
+
+        var queries = ["${facet_desc_0}", "${facet_desc_1}", "${facet_desc_2}", "${facet_desc_3}", "${facet_desc_4}"]
+        var questions = ["${question_0}", "${question_1}", "${question_2}", "${question_3}", "${question_4}"]
+        var answers1 = ["${answer_1_0}", "${answer_1_1}", "${answer_1_2}", "${answer_1_3}", "${answer_1_4}"]
+        var answers2 = ["${answer_2_0}", "${answer_2_1}", "${answer_2_2}", "${answer_2_3}", "${answer_2_4}"]
+
+
+        // for (i = 0; i < max_results; i++){
+        // 	urls.push("${url"+i+"}");
+        // 	titles.push("${title"+i+"}");
+        // 	descs.push("${desc"+i+"}");
+        // 	trec_ids.push("${trec_id"+i+"}");
+        // }
+
+
+        // Function to shuffle a given array
+        // Array.prototype.shuffle = function () {
+        //     for (var i = 0; i < this.length; i++) {
+        //         var r = parseInt(Math.random() * this.length);
+        //         var obj = this[r];
+        //         this[r] = this[i];
+        //         this[i] = obj;
+        //     }
+        // }
+
+        random_results = [];
+        for (x = 0; x < queries.length; x++) {
+            random_results[x] = x;
+        }
+
+        // Call the function to shuffle the array
+        //random_results.shuffle();
+
+        // for (x = 0; x < random_results.length; x++) {
+        //     document.getElementById("shuffledList").value += urls[random_results[x]] + ', ';
+        // }
+
+        theResultContainer = document.getElementById('search_result_container');
+        for (i = 0; i < queries.length; i++) {
+            var newHtml = "";
+            // 		if (i % 5 == 0){
+            // 			newHtml = "<li id=\"serp_" + i + "\" data-type=\"requery\" hidden><h3 id=\"serp_" + i + "_requery\">Now it's time to change your search query to see new results.<br>Type a new query and press the Search button to see new results.</h3><br><div id=\"serp_" + i + "_snippet\" hidden>";
+            // 		}else{
+            newHtml = "<li id=\"serp_" + i + "\" data-type=\"snippet\" hidden>";
+            // 		}
+
+            // WITH URL 
+            newHtml += "<div class=\"row\"><div class=\"col-sm-12 col-12 col-md-12 col-lg-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0\"><div class=\"row\"><div class=\"col-sm-11 col-11 col-md-11 col-lg-11\"><h4 id=\"serp_title_" + i + "\"><a class=\"resultLink\" id=\"serp_title_" + i + "\" target=\"_blank\" data-position=\"" + i + "\" href=\"\"> Topic: " + queries[random_results[i]] + "</a></h4></div></div><div class=\"row\"><div class=\"col-sm-12 col-12 col-md-12 col-lg-12\"><div class=\"relative\" id=\"serp_desc_" + i + "\"><p>Question: " + questions[random_results[i]] + "?</p><p>Answer 1: " + answers1[random_results[i]] + "</p><p>Answer 2: " + answers2[random_results[i]] + "</p></div></div></div></div></div><br><div class=\"row\"><div class=\"col col-lg-4 col-md-4 col-sm-12\"><button class=\"btn btn-success btn-block\" id=\"btn_answer1_" + i + "\" data-answer1=\"" + answers1[random_results[i]] + "\" data-answer2=\"" + answers2[random_results[i]] + "\" data-relevance=\"answer1\" type=\"button\">Answer 1 is more useful.</button></div><div class=\"col col-lg-4 col-md-4 col-sm-12\"><button class=\"btn btn-info btn-block\" id=\"btn_answer2_" + i + "\" data-answer1=\"" + answers1[random_results[i]] + "\" data-answer2=\"" + answers2[random_results[i]] + "\" data-relevance=\"answer2\" type=\"button\">Answer 2 is more useful.</button></div><div class=\"col col-lg-4 col-md-4 col-sm-12\"></div></div></li>" + "</a></h4></div></div><div class=\"row\"><div class=\"col-sm-12 col-12 col-md-12 col-lg-12\"></div>";
+
+
+            if (i % 3234 == 0 && i > 0) {
+                newHtml += "</div></li>";
+            } else {
+                newHtml += "</li>";
+            }
+            theResultContainer.innerHTML += newHtml;
+        }
+        theResultContainer.innerHTML += "<li id=\"serp_" + i + "\" hidden><h3>Done!</h3><h3>Press the submit button.</h3></li>";
+    </script>
+
+    <style type="text/css">
+        #collapseTrigger {
+            color: #fff;
+            display: block;
+            text-decoration: none;
+        }
+
+        #submitButton {
+            white-space: normal;
+        }
+
+        .image {
+            margin-bottom: 15px;
+        }
+
+        /* CSS for breaking long words/urls */
+        .dont-break-out {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -ms-hyphens: auto;
+            -moz-hyphens: auto;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+        }
+    </style>
+    <!-- Close internal style sheet -->
+    <!-- External JS references -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+        integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
+        integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4"
+        crossorigin="anonymous"></script><!-- Open internal javascript -->
+    <script>
+        $(document).ready(function () {
+            // Instructions expand/collapse
+            var content = $('#instructionBody');
+            var trigger = $('#collapseTrigger');
+            // $('#search_query').popover();
+            // content.hide();
+            $('.collapse-text').text('(Click to collapse)');
+            trigger.click(function () {
+                content.toggle();
+                var isVisible = content.is(':visible');
+                if (isVisible) {
+                    $('.collapse-text').text('(Click to collapse)');
+                } else {
+                    $('.collapse-text').text('(Click to expand)');
+                }
+            });
+
+            // function query_repeated(new_query){
+            // 	for(i=0; i<glob_list_queries.length; i++){
+            // 		// console.log()
+            // 		if(glob_list_queries[i][0] == new_query)
+            // 			return true;
+            // 	}
+            // 	return false;
+            // }
+
+
+            $('#btn_search').click(function (event) { // tek pokazuje tu, kad kliknem
+                $('#search_result_container').show();
+                // });
+                // 	query_text = $("#search_query").val().trim();
+                // 	if(query_text.length < 1){
+                // 		alert("The query cannot be empty! Please enter a valid query.");
+                // 		return false;
+                // 	}
+                // 	if(!query_repeated(query_text)){
+                // 		glob_list_queries.push([query_text, event.timeStamp]);
+                // 		if($("#serp_" + current_result_index).data("type") == "requery" 
+                // 				|| current_result_index == 0){            			
+                //     		$("#serp_" + current_result_index + '_requery').hide();		            
+                $("#serp_" + current_result_index).show();
+                $("#serp_" + (current_result_index) + '_snippet').show();
+                // 			// current_result_index += 1;                
+                // 		}
+                // 	}else{
+                // 		alert("The query is repated. Please enter a new query!");
+                // 		glob_bool_new_query_added = false;
+                // 	}
+                // 	console.log(glob_list_queries);
+            });
+
+            // $('#btn_start').click(function(event){
+            $('#search_section').show();
+            $('#btn_start').hide();
+            $('#btn_search').prop('disabled', false);
+            //glob_list_clicks.push({"start_search": event.timeStamp});
+            // glob_list_queries.push({"start_search": event.timeStamp});
+            //});
+            // end expand/collapse
+        });
+
+
+        (function ($) {
+            $.fn.invisible = function () {
+                return this.each(function () {
+                    $(this).hide();
+                });
+            };
+            $.fn.visible = function () {
+                return this.each(function () {
+                    $(this).show();
+                });
+            };
+        }(jQuery));
+
+
+        document.getElementById("deviceType").value = navigator.userAgent;
+        document.getElementById("screenSize").value = window.screen.availWidth + ' x ' + window.screen.availHeight;
+
+
+        function containsObject(obj, list) {
+            var i;
+            for (i = 0; i < list.length; i++) {
+                if (list[i] === obj) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // Tracking Top Links Hover Menus
+        function trackClick(selector) {
+            var elements = window.document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener('click', function (event) {
+                    glob_list_clicks.push([event.target.id, event.timeStamp]);
+                    console.log(glob_list_clicks);
+                });
+            }
+
+        }
+
+        function trackAssessment(selector) {
+            var elements = window.document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener('click', function (event) {
+                    glob_list_assessments.push([event.target.id,
+                    //event.target.getAttribute("data-url"),
+                    //event.target.getAttribute("data-title"),
+                    event.target.getAttribute("data-answer1"),
+                    event.target.getAttribute("data-answer2"),
+                    event.target.getAttribute("data-relevance"),
+                    event.timeStamp]);
+                    console.log(glob_list_assessments);
+                });
+            }
+
+        }
+
+        // Tracking Top Links Hover Menus
+        function trackHoverIntent(selector, min_time, store_content) {
+            var timeoutId;
+            var elements = window.document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener('mouseenter', function (event) {
+                    mouseEnterTime[event.target.id] = event.timeStamp;
+                });
+                elements[i].addEventListener('mouseleave', function (event) {
+                    var targetElement = event.target || event.srcElement;
+                    var id = targetElement.id;
+                    var hovertime = Math.round(event.timeStamp - mouseEnterTime[id]);
+                    if (hovertime < min_time)
+                        return null;
+                    var elementcontent = '';
+                    if (store_content) elementcontent = targetElement.getAttribute('value');
+
+                    var timestamp = mouseEnterTime[id];
+
+                    glob_list_hover.push([id, mouseEnterTime[id], event.timeStamp])
+
+                    console.log(glob_list_hover);
+                    //                         console.log(id + " mouse hoverer");
+                    timeoutId = null;
+                });
+            }
+
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener('mouseleave', function () {
+                    if (timeoutId) {
+                        window.clearTimeout(timeoutId);
+                        timeoutId = null;
+                    }
+                });
+            }
+        }
+
+        function hideShowNextResult(selector) {
+            var elements = window.document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener('click', function (event) {
+                    if (current_result_index > -1) {
+                        $("#serp_" + current_result_index).hide();
+                    }
+                    // $("#serp_" + (current_result_index + 1)).show();
+                    $("#serp_" + (current_result_index + 1)).animate({ "opacity": "show", top: "100" }, 500);
+                    current_result_index += 1;
+                    if (current_result_index >= max_results) {
+                        $('#btn_search').prop('disabled', true);
+                        $('#submitButton').prop('disabled', false);
+                    }
+                });
+            }
+        }
+
+        var mouseEnterTime = {};
+        var screen_size = $(window).width() + 'x' + $(window).height();
+        var current_result_index = 0;
+        var glob_list_hover = [
+            { 'start': new Date().getTime() }
+        ];
+        var glob_list_clicks = [
+            { "start": new Date().getTime() }
+        ];
+        var glob_list_assessments = [
+            { "start": new Date().getTime() }
+        ];
+        var glob_list_queries = [
+            { "start": new Date().getTime() }
+        ]
+        var glob_bool_new_query_added = true;
+
+        trackHoverIntent("#instruction_section", 150, 0);
+        trackHoverIntent("#btn_start", 150, 0);
+        trackClick("#btn_start");
+        trackClick("#btn_search");
+        trackClick("button[id*='btn_answer1_']");
+        trackClick("button[id*='btn_answer2_']");
+        trackHoverIntent("button[id*='btn_answer1_']", 150, 0);
+        trackHoverIntent("button[id*='btn_answer2_']", 150, 0);
+        //trackHoverIntent("#search_query", 150, 0);
+        trackClick("a[id*='serp_title_']");
+        trackHoverIntent("h4[id*='serp_title_']", 150, 0);
+        trackClick("cite[id*='serp_url_']");
+        trackHoverIntent("cite[id*='serp_url_']", 150, 0);
+        trackClick("div[id*='serp_desc_']");
+        trackHoverIntent("div[id*='serp_desc_']", 150, 0);
+        trackAssessment("button[id*='btn_answer1_']");
+        trackAssessment("button[id*='btn_answer2_']");
+        hideShowNextResult("button[id*='btn_answer1_']");
+        hideShowNextResult("button[id*='btn_answer2_']");
+
+
+        $(document).ready(function () {
+            $('#submitButton').prop('disabled', true);
+            $('#submitButton').click(function () {
+                $('#mouse_hover_events').val(JSON.stringify(glob_list_hover));
+                $('#mouse_click_events').val(JSON.stringify(glob_list_clicks));
+                $('#relevance_assessments').val(JSON.stringify(glob_list_assessments));
+                //$('#query_strings').val(JSON.stringify(glob_list_queries));
+                //var q_num = glob_list_queries.length;
+                //var rel_num = glob_list_assessments.length;
+                //console.log(q_num, rel_num);
+                // if (q_num < (min_queries + 1) || rel_num < (max_results + 1)){
+                // if (rel_num < (max_results + 1)){
+                // 	alert("You have not entered enought queries and/or assessed enough results. Your submission will be rejected.");
+                // }
+                return true;
+            });
+
+        });
+
+    </script>
+
+    <script>
+        var checks = document.querySelectorAll(".check");
+        var max = 2;
+        for (var i = 0; i < checks.length; i++)
+            checks[i].onclick = selectiveCheck;
+        function selectiveCheck(event) {
+            var checkedChecks = document.querySelectorAll(".check:checked");
+            if (checkedChecks.length >= max + 1)
+                return false;
+        }
+
+        //$('#questions_frame').hide();
+        $(document).ready(function () {
+            var content = $('#instructionBody');
+            var hide = $('#hideButton');
+
+            hide.click(function () {
+                content.toggle();
+                $(this).hide();
+                $('#questions_frame').show();
+            });
+        });
+
+//   	KeyTrac.configure({
+//         anytextFields: ['#search_query'] // <-- AnyText mode
+//       });
+
+    </script>
