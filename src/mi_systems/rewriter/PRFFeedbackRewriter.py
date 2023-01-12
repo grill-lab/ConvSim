@@ -4,9 +4,9 @@ from src.data_classes.conversational_turn import ConversationalTurn
 from pyserini.search.lucene import LuceneSearcher
 
 
-class FeedbackRewriter(AbstractRewriter):
+class PRFFeedbackRewriter(AbstractRewriter):
 
-    def __init__(self, collection, feedback_type='rocchio'):
+    def __init__(self, collection: str, feedback_type='rocchio'):
         self.retriever = LuceneSearcher(collection)
         if feedback_type == 'rocchio':
             self.retriever.set_rocchio()
@@ -27,14 +27,7 @@ class FeedbackRewriter(AbstractRewriter):
             feedback_terms = {term: score for term, score in sorted(
                 feedback_terms.items(), key=lambda ele: ele[1], reverse=True
             )}
-            feedback_terms = list(feedback_terms.keys())[:5]
+            feedback_terms = list(feedback_terms.keys())
 
             rewrite = previous_utterance + f" {' '.join(feedback_terms)}"
             return rewrite
-        
-        else:
-            return None
-
-
-
-    

@@ -20,6 +20,7 @@ class SparseRetriever(AbstractRetriever):
         num_results: int = 1000) -> List[Document]:
         search_query = conversational_turn.rewritten_utterance if \
             conversational_turn.rewritten_utterance else conversational_turn.user_utterance
+        # search_query = conversational_turn.manual_utterance
         
         search_results = self.retriever.search(search_query, num_results)
         parsed_passages = self._parse_search_results(search_results)

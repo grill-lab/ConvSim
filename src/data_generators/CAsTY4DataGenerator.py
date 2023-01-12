@@ -23,6 +23,7 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
                     continue
                 information_need = turn.get("information_need")
                 utterance = turn.get("utterance")
+                manual_utterance = turn.get("manual_rewritten_utterance")
                 utterance_type = turn.get("utterance_type").lower()
                 relevance_judgements = [
                     qrel for qrel in self.qrels if qrel.query_id == turn_id]
@@ -57,6 +58,7 @@ class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
                 yield ConversationalTurn(
                     turn_id=turn_id, information_need=information_need,
                     user_utterance=utterance,
+                    manual_utterance=manual_utterance,
                     conversation_history=conversational_history,
                     user_utterance_type=utterance_type,
                     relevance_judgements=relevance_judgements

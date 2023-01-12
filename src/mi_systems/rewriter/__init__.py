@@ -1,3 +1,6 @@
 from .T5Rewriter import T5Rewriter
-from .FeedbackRewriter import FeedbackRewriter
+from .PRFFeedbackRewriter import PRFFeedbackRewriter
 from .T5FeedbackRewriter import T5FeedbackRewriter
+from .RM3FeedbackRewriter import RM3FeedbackRewriter
+from .RocchioFeedbackRewriter import RocchioFeedbackRewriter
+from .FirstPassT5Rewriter import FirstPassT5Rewriter

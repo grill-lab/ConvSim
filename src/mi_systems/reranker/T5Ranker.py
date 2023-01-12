@@ -16,6 +16,7 @@ class T5Ranker(AbstractReranker):
 
         search_query = conversational_turn.rewritten_utterance if \
             conversational_turn.rewritten_utterance else conversational_turn.user_utterance
+        # search_query = conversational_turn.manual_utterance
         parsed_query = Query(search_query)
         parsed_passagaes = [
             Text(document.doc_text, {'id': document.doc_id}, 0) for document in conversational_turn.ranking

@@ -10,10 +10,12 @@ class T5Rewriter(AbstractRewriter):
         self.model = AutoModelForSeq2SeqLM.from_pretrained(
             "castorini/t5-base-canard"
         ).to(self.device)
-        self.tokenizer = AutoTokenizer.from_pretrained("castorini/t5-base-canard")
-    
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            "castorini/t5-base-canard")
+
     def rewrite(self, conversational_turn: ConversationalTurn) -> str:
-        previous_utterances = [turn['utterance'] for turn in conversational_turn.conversation_history]
+        previous_utterances = [turn['utterance']
+                               for turn in conversational_turn.conversation_history]
         previous_utterances += [conversational_turn.user_utterance]
         context = " ||| ".join(previous_utterances)
 
@@ -30,5 +32,6 @@ class T5Rewriter(AbstractRewriter):
                 early_stopping=True,
             ).to(self.device)
 
-        rewrite = self.tokenizer.decode(output_ids[0], skip_special_tokens=True)
+        rewrite = self.tokenizer.decode(
+            output_ids[0], skip_special_tokens=True)
         return rewrite
