@@ -1,0 +1,333 @@
+topic_id,facet_id,facet,initial_request,question1,answer1,question2,answer2,question3,answer3
+237,F0549,What are some remedies for a lump in the throat?,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,"Yes, I would like to know what are some remedies for a lump in the throat.",are you interested in seeing remedies for alleviating a lump in the throat,yes,would you like to know what causes a lump in the throat,"2    Yes, I want to know what remedies might be hel...
+Name: answer, dtype: object"
+215,F0487,Find Maryland DNR fishing reports.,Info on maryland department of natural resources,do you want to know the location of maryland department of natural resources,"3    no i want to know how to get a land surveyor t...
+Name: answer, dtype: object",would you like to conact the maryland department of natural resources,"4    No, I would like to see reports on fishing rep...
+Name: answer, dtype: object",would you like to know the responsibilities of the maryland department of natural resources,"5    yes
+Name: answer, dtype: object"
+222,F0511,What is the medical term for male menopause?,I'm looking for information on male menopause,would you like to know what age men may start male menopause,"6    no i want to know what male menopause is
+Name: answer, dtype: object",why are you interested in learning more about male menopause,"7    I want to know what the symptoms are
+Name: answer, dtype: object",do you want to know the symptoms of male menopause,"8    No, I want to know what the symptoms are
+Name: answer, dtype: object"
+233,F0538,Find reviews of hair dye removers.,Tell me about hair dye.,would you like to know about hair dye brands,"9    Yes.
+Name: answer, dtype: object",would you like to know about hair dye colors,"10    No, I would like reviews of hair dye removers.
+Name: answer, dtype: object",are you interested in hair dye application or removal,"11    No, I want reviews of hair dye removers.
+Name: answer, dtype: object"
+210,F0464,Find information on handheld golf gps devices.,golf gps,would you like a comparison of golf gps systems,"12    no i want to know how gps gps devices work
+Name: answer, dtype: object",are you interested in the history of gps systems in golf,"13    No, I want to know about handheld golf gps dev...
+Name: answer, dtype: object",are you interested in the accuracy of the gps,"14    No, I just want to know how to use them.
+Name: answer, dtype: object"
+210,F0461,What is the best golf gps device?,golf gps,would you like to buy a golf gps system,"15    No, I want to know what the best gps device is
+Name: answer, dtype: object",would you like a comparison of golf gps systems,"16    Yes, I would like to know about the different ...
+Name: answer, dtype: object",are you interested in a specific golf gps system,"17    No, I would like to see pictures of the USS Cole.
+Name: answer, dtype: object"
+222,F0509,Find information on male menopause medication.,I'm looking for information on male menopause,would you like to know what age men may start male menopause,"18    no i want to know what menopause medication is
+Name: answer, dtype: object",why are you interested in learning more about male menopause,"19    I want to know what male menopause medication is.
+Name: answer, dtype: object",are you looking for some medication,"20    No.
+Name: answer, dtype: object"
+237,F0550,How does anxiety cause the feeling of a lump in the throat?,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,"No, I would like to know about the symptoms of a lump in the throat.",what type of medical information on lumps in the throat would you like,"22    yes
+Name: answer, dtype: object",are you referring to the person,"23    No, I need to know how to treat it.
+Name: answer, dtype: object"
+222,F0510,What is the definition of male menopause?,I'm looking for information on male menopause,are you interested in the differences between male and female menopause,"24    yes
+Name: answer, dtype: object",are you interested to see male menopause jokes,"25    No, I want to see pictures of them.
+Name: answer, dtype: object",would you like to know what age men may start male menopause,"26    No, I want to know what the definition of meno...
+Name: answer, dtype: object"
+233,F0536,Where can I find organic or chemical free hair dye products?,Tell me about hair dye.,are you interested in a particular hair dye or a history of hair dye,"27    no i want to know about the symptoms
+Name: answer, dtype: object",do you know what color of hair dye to use,"28    yes
+Name: answer, dtype: object",what color of hair dye are you looking for,"29    Yes, I would like to know how to get a license...
+Name: answer, dtype: object"
+237,F0549,What are some remedies for a lump in the throat?,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,"Yes, I would like to know what are some remedies for a lump in the throat.",are you interested in seeing remedies for alleviating a lump in the throat,yes,do you need info on remedies,"32    no i want to know what type of carpenterter be...
+Name: answer, dtype: object"
+237,F0550,How does anxiety cause the feeling of a lump in the throat?,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,"No, I would like to know about the symptoms of a lump in the throat.",would you like to view sad movies or shows that give you a lump in your throat,"34    No, I want to know how to fix a lump in the th...
+Name: answer, dtype: object",are you interested in the reasons a lump in the throat occurs,"35    No, I just want to know how it can be treated
+Name: answer, dtype: object"
+253,F0595,What are the concerns with extracting an abscessed tooth?,What treatments are available for a tooth abscess?,would you like to learn about home remedies for treating a tooth abscess,"36    no i want to know about treatment options
+Name: answer, dtype: object",do you want to know about tooth abscess symptoms,"37    No, I want to know about treating an abscessed...
+Name: answer, dtype: object",do you want to know how a tooth abscess is treated,"Yes, I would like to know about what treatments are available for it."
+243,F0567,How can I purchase an Afghanistan flag?,Find information about afghanistan flag,do you want to know how many square miles afghanistan is,"39    no i want to know about purchasing an afghanis...
+Name: answer, dtype: object",would you like to know where afghanistan is on the map,"40    no i want to know how to purchase an afghanist...
+Name: answer, dtype: object",are you looking for a map of afghanistan,"41    No, I would like to see pictures of Afghanistan.
+Name: answer, dtype: object"
+269,F0646,Find the Marshall County Schools in Kentucky school calendar,Find information about marshall county schools.,would like to know a list of marshall county schools in your state,"42    no i want to know how to get a ham radio ham r...
+Name: answer, dtype: object",what state are you searching for marshall county schools,"43    no i want to know the schools in kentucky
+Name: answer, dtype: object",are you looking for events,"44    no i want to know the school schedules for the...
+Name: answer, dtype: object"
+210,F0464,Find information on handheld golf gps devices.,golf gps,would you like to buy a golf gps system,"45    no i want to know the devices that work with gps
+Name: answer, dtype: object",would you like a comparison of golf gps systems,"46    No, I want to know about handheld golf gps dev...
+Name: answer, dtype: object",are you looking for golf ball sized gps technologies,"47    Yes, I would like to know the symptoms.
+Name: answer, dtype: object"
+285,F0713,What are the symptoms of a magnesium deficiency?,I'm interested in magnesium rich foods,would you like to know about magnesium rich foods that are kid friendly,yes i would like to know what the symptoms are,do you want to find recipes to learn how to make magnesium rich foods,"49    Yes, that's exactly what I need to know.
+Name: answer, dtype: object",would you like to learn the drawbacks to consuming magnesium rich foods,"No, I want to know what the symptoms are."
+237,F0547,Find information about a lump in the throat caused by the thyroid.,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,"No, I would like to know what causes it.",can thyroid problem cause a lump in the throat,no i want to know about symptoms,what type of medical information on lumps in the throat would you like,i want to know about treatment options
+210,F0466,Where can I get a used golf gps device?,golf gps,would you like a comparison of golf gps systems,"54    no i need to know how to get used gps devices
+Name: answer, dtype: object",are you interested in the history of gps systems in golf,"55    Yes
+Name: answer, dtype: object",are you interested in the accuracy of the gps,"56    Yes, I would like to know how to get a used go...
+Name: answer, dtype: object"
+210,F0461,What is the best golf gps device?,golf gps,would you like a comparison of golf gps systems,"57    no i am looking for the best gps device
+Name: answer, dtype: object",are you interested in the history of gps systems in golf,"58    yes i am interested in the gps devices
+Name: answer, dtype: object",would you like to buy a golf gps system,"59    no, i want to know about the best golf gps dev...
+Name: answer, dtype: object"
+273,F0670,Is there a genetic basis to Wilson's disease?,Give me information on wilson's disease.,are you interested in description of the disease,"60    yes
+Name: answer, dtype: object",would you like to hear about treatments for this disease,"61    Yes, that would be great.
+Name: answer, dtype: object",are you looking for the symptoms of this disease,"62    Yes, I would like to know about the side effec...
+Name: answer, dtype: object"
+237,F0551,Find information about difficulty in swallowing caused by a lump in the throat.,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,Yes.,would you like to know what causes a lump in the throat,"64    yes
+Name: answer, dtype: object",are you interested in the reasons a lump in the throat occurs,"Yes, that's right."
+253,F0593,What treatments are available for a tooth abscess?,What treatments are available for a tooth abscess?,are you looking for pictures of a tooth abscess,"66    no i want to know how to treat it
+Name: answer, dtype: object",do you want to see a selfquiz to determine if you have a tooth abscess,"67    no i want to know what treatments are available
+Name: answer, dtype: object",do you want to know how a tooth abscess is treated,"68    No.
+Name: answer, dtype: object"
+222,F0511,What is the medical term for male menopause?,I'm looking for information on male menopause,are you interested in the differences between male and female menopause,"69    No, I want to know what it is.
+Name: answer, dtype: object",are you interested to see male menopause jokes,"70    yes i would like to see a list of male menopau...
+Name: answer, dtype: object",would you like to know what age men may start male menopause,"71    Yes, please tell me about the surgical options...
+Name: answer, dtype: object"
+243,F0564,Find pictures of the Afghanistan flag.,Find information about afghanistan flag,would you like to know the origin of the afghanistan flag,"72    no i want to see pictures of the flag
+Name: answer, dtype: object",would you like to know if the afghanistan flag has any symbols,"73    No, I want to see pictures of the Afghanistan ...
+Name: answer, dtype: object",are you interested in purchasing an afghanistan flag,"74    yes i am looking for pictures
+Name: answer, dtype: object"
+222,F0508,What are the symptoms and signs of male menopause?,I'm looking for information on male menopause,are you interested in the differences between male and female menopause,"75    yes
+Name: answer, dtype: object",are you interested to see male menopause jokes,"76    yes
+Name: answer, dtype: object",are you interested in male menopause symptoms,"77    Yes, I would like to see the symptoms and sign...
+Name: answer, dtype: object"
+215,F0484,What information is available about Maryland parks and recreation?,Info on maryland department of natural resources,do you want to know what jobs are available at the maryland department of natural resources,"78    Yes, I want to know about their recreation.
+Name: answer, dtype: object",do you want to know the location of maryland department of natural resources,"79    no i want to know how to get a license to oper...
+Name: answer, dtype: object",are you referring to the the department of natural resources in maryland,"80    Yes, I would like to know about the jobs avail...
+Name: answer, dtype: object"
+215,F0482,Find the phone numbers for units within the Maryland Department of Natural Resources.,Info on maryland department of natural resources,do you want to know what jobs are available at the maryland department of natural resources,"81    Yes, I need to know the phone numbers.
+Name: answer, dtype: object",do you want to know the location of maryland department of natural resources,"82    Yes, I would like to know where to buy and get...
+Name: answer, dtype: object",are you interested in jobs available in maryland department of natural resources,"Yes, I would like to know where they are located"
+222,F0508,What are the symptoms and signs of male menopause?,I'm looking for information on male menopause,would you like to know what age men may start male menopause,"84    Yes
+Name: answer, dtype: object",do you want to know the symptoms of male menopause,"85    No, I want to know how menopause can affect my...
+Name: answer, dtype: object",is this an emergency,"86    No, I want to know what symptoms menopause can...
+Name: answer, dtype: object"
+285,F0713,What are the symptoms of a magnesium deficiency?,I'm interested in magnesium rich foods,would you like to know about magnesium rich foods that are kid friendly,yes i would like to know what the symptoms are,want to learn what other minerals are in foods that are high in magnesium,"88    yes
+Name: answer, dtype: object",would you like to learn the drawbacks to consuming magnesium rich foods,"No, I want to know what the symptoms are."
+215,F0484,What information is available about Maryland parks and recreation?,Info on maryland department of natural resources,do you want to know the location of maryland department of natural resources,"90    no i am interested in learning about the activ...
+Name: answer, dtype: object",do you want to know more about jobs in connecticut,"91    No, I want to know what jobs are available there
+Name: answer, dtype: object",are you interested in any specific city in florida,"92    no i am interested in how carpenterter bees work
+Name: answer, dtype: object"
+243,F0564,Find pictures of the Afghanistan flag.,Find information about afghanistan flag,do you want to know how many square miles afghanistan is,"93    no i want to know how to build one
+Name: answer, dtype: object",would you like to know where afghanistan is on the map,"94    Yes, that is right
+Name: answer, dtype: object",are you looking for a map of afghanistan,"95    Yes, that is what I need to know.
+Name: answer, dtype: object"
+233,F0534,What commercial hair dyes are available?,Tell me about hair dye.,are you interested in a particular hair dye or a history of hair dye,"96    No, I want to know about commercial hair dye.
+Name: answer, dtype: object",do you know what color of hair dye to use,"97    yes i would like to know about the movies i ca...
+Name: answer, dtype: object",what color of hair dye are you looking for,"98    Yes, I want to know about commercial hair dye.
+Name: answer, dtype: object"
+285,F0712,Which foods are rich in magnesium?,I'm interested in magnesium rich foods,would you like to know about magnesium rich foods that are kid friendly,"Yes, I would like to know about the history of it.",want to learn what other minerals are in foods that are high in magnesium,"100    Yes, that's perfect.
+Name: answer, dtype: object",would you like to learn the drawbacks to consuming magnesium rich foods,"101    No, I would like to know what foods are high i...
+Name: answer, dtype: object"
+273,F0670,Is there a genetic basis to Wilson's disease?,Give me information on wilson's disease.,do you want information on the treatment of wilsons disease,"102    no i want to know about the causes
+Name: answer, dtype: object",what can i tell you about wilsons disease,"103    No, I would like to know about the symptoms of...
+Name: answer, dtype: object",would you like to know the definition of wilsons disease,"104    No, I just want to know about the treatment of...
+Name: answer, dtype: object"
+273,F0667,What is the relationship between Wilson's disease and zinc?,Give me information on wilson's disease.,do you want information on the treatment of wilsons disease,"105    no i want to know what the relationship betwee...
+Name: answer, dtype: object",would you like to know about potential cures for wilsons disease,"106    no i want to know what causes zinc
+Name: answer, dtype: object",what do you need to know about wilsons disease,"107    I don't know
+Name: answer, dtype: object"
+210,F0463,Is there a golf gps app for the Iphone?,golf gps,would you like a comparison of golf gps systems,"108    No, I need a golf gps app for the Iphone.
+Name: answer, dtype: object",are you interested in the accuracy of the gps,"109    No, I would like to know about the golf gps ap...
+Name: answer, dtype: object",are you interested in how gps was orginally made,"110    yes and what it is
+Name: answer, dtype: object"
+243,F0566,What does the Afghanistan flag's Arabic inscription mean?,Find information about afghanistan flag,would you like to know the origin of the afghanistan flag,"111    Yes, I would like to know what the Afghanistan...
+Name: answer, dtype: object",are you interested in purchasing an afghanistan flag,"112    Yes, I am interested in purchasing one.
+Name: answer, dtype: object",do you want to see what the afghanistan flag looks like,"113    No, I just want to know what the Afghanistan f...
+Name: answer, dtype: object"
+273,F0667,What is the relationship between Wilson's disease and zinc?,Give me information on wilson's disease.,are you interested in description of the disease,"114    Yes, I would like to know about the relationsh...
+Name: answer, dtype: object",would you like to hear about treatments for this disease,"115    Yes, I would like to know about the relationsh...
+Name: answer, dtype: object",are you looking for the symptoms of this disease,"116    No, I want to know what causes Wilson's disease.
+Name: answer, dtype: object"
+273,F0665,Find Wilson (Wilson's) Disease Association web site.,Give me information on wilson's disease.,do you want information on the treatment of wilsons disease,"117    no i want to know what symptoms Wilson's disea...
+Name: answer, dtype: object",would you like to know about potential cures for wilsons disease,"118    No.
+Name: answer, dtype: object",what do you need to know about wilsons disease,"119    i want to know about Wilson's Disease association
+Name: answer, dtype: object"
+269,F0646,Find the Marshall County Schools in Kentucky school calendar,Find information about marshall county schools.,which state would you like to find out about in regards to marshall county schools,"120    Yes
+Name: answer, dtype: object",would like to know a list of marshall county schools in your state,"121    No, I just want to know the schools in the town.
+Name: answer, dtype: object",what state are you searching for marshall county schools,"122    No, I want to know about schools that are in t...
+Name: answer, dtype: object"
+285,F0712,Which foods are rich in magnesium?,I'm interested in magnesium rich foods,would you like to know about magnesium rich foods that are kid friendly,"Yes, I would like to know about the history of it.",would you like to learn about symptoms of magnesium deficiency,"124    No, I just want to know the benefits of being ...
+Name: answer, dtype: object",want to learn what other minerals are in foods that are high in magnesium,"125    no i want to know about symptoms
+Name: answer, dtype: object"
+253,F0594,What are the dangers/complications of leaving a tooth abscess untreated?,What treatments are available for a tooth abscess?,are you looking for pictures of a tooth abscess,"126    no i want to know the benefits of yoga
+Name: answer, dtype: object",do you want to see a selfquiz to determine if you have a tooth abscess,"127    No.
+Name: answer, dtype: object",do you want to know how a tooth abscess is treated,"128    No, I need to know the dangers of leaving a to...
+Name: answer, dtype: object"
+273,F0666,What are the symptoms of Wilson's disease?,Give me information on wilson's disease.,are you interested in description of the disease,"129    Yes, I want to know what it is.
+Name: answer, dtype: object",would you like to hear about treatments for this disease,"130    Yes, that's right.
+Name: answer, dtype: object",are you looking for the symptoms of this disease,"131    Yes, that is exactly what I am looking for.
+Name: answer, dtype: object"
+215,F0485,What are the dates for Maryland hunting season?,Info on maryland department of natural resources,do you want to know the location of maryland department of natural resources,"132    no i would like to know the date of the maryla...
+Name: answer, dtype: object",are you interested in any specific city in florida,"133    I would like to know the dates of the Maryland...
+Name: answer, dtype: object",what area is florida are you interested in,"134    no i want to know the history of hoboken
+Name: answer, dtype: object"
+273,F0669,Find pictures of the Kayser-Fleischer ring that is a sign of Wilson's disease.,Give me information on wilson's disease.,do you want information on the treatment of wilsons disease,"135    yes i am looking for the kayser ring that is a...
+Name: answer, dtype: object",would you like to know about potential cures for wilsons disease,"136    No, I want pictures of the Kayser-Fleischer ri...
+Name: answer, dtype: object",what would you like to know about wilsons disease,"137    I would like to know the treatment of wilsons ...
+Name: answer, dtype: object"
+273,F0668,What diet should a person with Wilson's disease follow?,Give me information on wilson's disease.,are you interested in description of the disease,"138    no i am interested in the diet of a person wit...
+Name: answer, dtype: object",would you like to hear about treatments for this disease,"139    Yes, that is what I need to know.
+Name: answer, dtype: object",are you looking for the symptoms of this disease,"140    No, I want to know what diet should a person w...
+Name: answer, dtype: object"
+210,F0466,Where can I get a used golf gps device?,golf gps,would you like to buy a golf gps system,"141    Yes, I need to know if I can get a used golf g...
+Name: answer, dtype: object",are you interested in a specific golf gps system,"142    No just the devices that work with it.
+Name: answer, dtype: object",would you like to know how gps systems are used in golf,"143    yes
+Name: answer, dtype: object"
+243,F0565,What does the Afghanistan flag's national emblem represent?,Find information about afghanistan flag,do you want to know how many square miles afghanistan is,"144    yes
+Name: answer, dtype: object",would you like to know where afghanistan is on the map,"145    yes
+Name: answer, dtype: object",are you looking for a map of afghanistan,"146    No.
+Name: answer, dtype: object"
+273,F0666,What are the symptoms of Wilson's disease?,Give me information on wilson's disease.,do you want information on the treatment of wilsons disease,"147    no i want to know what symptoms i can expect
+Name: answer, dtype: object",what can i tell you about wilsons disease,"148    I want to know about Wilson's disease
+Name: answer, dtype: object",do you want to know the symptoms of wilsons disease,"149    Yes, I would like to know the symptoms of Wils...
+Name: answer, dtype: object"
+243,F0567,How can I purchase an Afghanistan flag?,Find information about afghanistan flag,would you like to know the origin of the afghanistan flag,"150    No, I want to know what I can buy an afghanist...
+Name: answer, dtype: object",are you interested in purchasing an afghanistan flag,"151    no
+Name: answer, dtype: object",what would you like to know about the afghanistan flag,"152    Yes, and what are the causes?
+Name: answer, dtype: object"
+233,F0537,What hair dye options should be considered during pregnancy?,Tell me about hair dye.,would you like to know about hair dye brands,"153    no i want to know the different dye options
+Name: answer, dtype: object",what hair dye brand will you use,"154    i want to know what hair dye options they shou...
+Name: answer, dtype: object",are you interested in hair dye color shades,"155    Yes, specifically if they are suitable for pre...
+Name: answer, dtype: object"
+233,F0535,Find information on making homemade hair dye products.,Tell me about hair dye.,are you interested in a particular hair dye or a history of hair dye,"156    no i want information on making a hair dye
+Name: answer, dtype: object",what color of hair dye are you looking for,"157    No, I would like to know how to make hair dye ...
+Name: answer, dtype: object",do you know what color of hair dye to use,"158    Yes
+Name: answer, dtype: object"
+237,F0548,What are some of the causes for a lump in the throat?,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,no i want to know if it is related to menopause,what type of medical information on lumps in the throat would you like,"160    no i want to know the reasons
+Name: answer, dtype: object",do you wish to see possible causes of a lump in throat,"161    Yes, please give me a list of movies and TV sh...
+Name: answer, dtype: object"
+215,F0483,How do you get a Maryland fishing license?,Info on maryland department of natural resources,do you want to know the location of maryland department of natural resources,"162    Yes, that's right
+Name: answer, dtype: object",would you like to conact the maryland department of natural resources,"163    no i would like to know the advantages of yoga
+Name: answer, dtype: object",would you like more information on the wildlife the maryland department of natural resources manages,"164    yes
+Name: answer, dtype: object"
+285,F0714,What are the effects of too much magnesium?,I'm interested in magnesium rich foods,would you like to know about magnesium rich foods that are kid friendly,no i want to know how much magnesium a child needs,do you want to find recipes to learn how to make magnesium rich foods,"166    no i would like to know about the effects of t...
+Name: answer, dtype: object",are you interested in tips for including more magnesium rich foods into your daily feet,"167    yes
+Name: answer, dtype: object"
+222,F0509,Find information on male menopause medication.,I'm looking for information on male menopause,are you interested in the differences between male and female menopause,"168    Yes, but only for yoga classes.
+Name: answer, dtype: object",are you interested to see male menopause jokes,"169    yes
+Name: answer, dtype: object",why are you interested in learning more about male menopause,"170    Yes, I need to know which medications are safe...
+Name: answer, dtype: object"
+210,F0463,Is there a golf gps app for the Iphone?,golf gps,would you like to buy a golf gps system,"171    Yes, I need a golf gps app for the phone
+Name: answer, dtype: object",are you interested in a specific golf gps system,"172    Yes I am
+Name: answer, dtype: object",are you looking for reviews of gps apps,"173    Yes, I want to know if there is a golf gps app...
+Name: answer, dtype: object"
+233,F0537,What hair dye options should be considered during pregnancy?,Tell me about hair dye.,are you interested in a particular hair dye or a history of hair dye,"174    yes i would like to know about treatments
+Name: answer, dtype: object",do you know what color of hair dye to use,"175    No, I would like to know about hair dye option...
+Name: answer, dtype: object",what color of hair dye are you looking for,"176    No, I would like to know about the history of ...
+Name: answer, dtype: object"
+253,F0596,Which antibiotics are used to treat a tooth abscess.,What treatments are available for a tooth abscess?,would you like to learn about home remedies for treating a tooth abscess,"177    no i want to know about treatments
+Name: answer, dtype: object",would you like to know the symptoms of a tooth abscess,"178    yes i am interested in a computer simulation
+Name: answer, dtype: object",are you looking for treatments,"179    No, I just want to know about the side effects.
+Name: answer, dtype: object"
+210,F0465,Is there a golf gps system that can be used world wide?,golf gps,would you like to buy a golf gps system,"180    Yes
+Name: answer, dtype: object",would you like to know how gps systems are used in golf,"181    No, I would like to know how golf gps is used ...
+Name: answer, dtype: object",are you interested in the history of gps systems in golf,"182    Yes, please give me more information
+Name: answer, dtype: object"
+300,F0773,Find a page that explains how to compute the mean of a set of numbers.,How to compute the mean of a set of numbers,are you looking for the us civil servant pay scale,"183    yes i am looking for the tools and information...
+Name: answer, dtype: object",would you like to know more about the history behind the gs pay scale,"184    no i need to know how to get a computer to do ...
+Name: answer, dtype: object",what gs pay scale are you looking for,"185    I don't know
+Name: answer, dtype: object"
+233,F0536,Where can I find organic or chemical free hair dye products?,Tell me about hair dye.,would you like to know about hair dye brands,"186    no i want to know what kind of devices are use...
+Name: answer, dtype: object",would you like to know about hair dye colors,"187    Yes
+Name: answer, dtype: object",are you interested in hair dye application or removal,"188    Yes, I need to know about their products.
+Name: answer, dtype: object"
+210,F0462,"Compare Bushnell, Callaway and Garmin golf gps systems.",golf gps,would you like a comparison of golf gps systems,"189    Yes, I would like to know the benefits of a ke...
+Name: answer, dtype: object",are you interested in the history of gps systems in golf,"190    No, I want to know about the gps system.
+Name: answer, dtype: object",are you interested in the accuracy of the gps,"191    No, I want to know what causes altitude sickness.
+Name: answer, dtype: object"
+210,F0465,Is there a golf gps system that can be used world wide?,golf gps,would you like a comparison of golf gps systems,"192    No, I need to know which ones are safe to use ...
+Name: answer, dtype: object",are you interested in the history of gps systems in golf,"193    Yes, that is what I need to know.
+Name: answer, dtype: object",are you interested in the accuracy of the gps,"194    No, I want to know what kind of golf gps syste...
+Name: answer, dtype: object"
+215,F0483,How do you get a Maryland fishing license?,Info on maryland department of natural resources,do you want to know what jobs are available at the maryland department of natural resources,"197    yes
+Name: answer, dtype: object",are you referring to the the department of natural resources in maryland,"198    no i want to know how to get a maryland fishin...
+Name: answer, dtype: object",would you like to know the responsibilities of the maryland department of natural resources,"199    Yes, that's right
+Name: answer, dtype: object"
+269,F0645,Find information about Marshall County Schools in West Virginia.,Find information about marshall county schools.,which state would you like to find out about in regards to marshall county schools,no i want to know about Marshall County schools,what state are you searching for marshall county schools,I don't know.,would like to know a list of marshall county schools in your state,"No, I would like to know about Marshall County schools in West Virginia."
+233,F0538,Find reviews of hair dye removers.,Tell me about hair dye.,are you interested in a particular hair dye or a history of hair dye,"203    no i want reviews about hair dye removers
+Name: answer, dtype: object",do you know what color of hair dye to use,"204    yes and i would like to know the history of it
+Name: answer, dtype: object",what color of hair dye are you looking for,"205    No, I want reviews of hair dye removers.
+Name: answer, dtype: object"
+237,F0551,Find information about difficulty in swallowing caused by a lump in the throat.,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,Yes.,would you like to view sad movies or shows that give you a lump in your throat,"207    yes
+Name: answer, dtype: object",are you interested in the reasons a lump in the throat occurs,"Yes, that's right."
+300,F0773,Find a page that explains how to compute the mean of a set of numbers.,How to compute the mean of a set of numbers,would you like to see how to calculate a mean formula,"209    no i want to know how to calculate it
+Name: answer, dtype: object",are you interested in calculating a mean value,"210    no i want to find a page that explains how to ...
+Name: answer, dtype: object",would you like to know the definition of the word mean,"211    yes, i want to know how to calculate the mean ...
+Name: answer, dtype: object"
+273,F0669,Find pictures of the Kayser-Fleischer ring that is a sign of Wilson's disease.,Give me information on wilson's disease.,are you interested in description of the disease,"212    yes and other information about it
+Name: answer, dtype: object",would you like to hear about treatments for this disease,"213    Yes, but I would also like to see pictures of ...
+Name: answer, dtype: object",are you looking for the symptoms of this disease,"214    No, I want to see pictures of the Kayser-Fleis...
+Name: answer, dtype: object"
+285,F0714,What are the effects of too much magnesium?,I'm interested in magnesium rich foods,would you like to know about magnesium rich foods that are kid friendly,no i want to know how much magnesium a child needs,would you like to learn the drawbacks to consuming magnesium rich foods,"216    yes
+Name: answer, dtype: object",want to learn what other minerals are in foods that are high in magnesium,"217    Yes, but only for yoga classes.
+Name: answer, dtype: object"
+253,F0596,Which antibiotics are used to treat a tooth abscess.,What treatments are available for a tooth abscess?,are you looking for pictures of a tooth abscess,"218    yes i want to know how to treat it
+Name: answer, dtype: object",do you want to see a selfquiz to determine if you have a tooth abscess,"219    No, I just want to know what treatments are av...
+Name: answer, dtype: object",do you want to know how a tooth abscess is treated,"220    No, I want to know what the symptoms are of.
+Name: answer, dtype: object"
+243,F0565,What does the Afghanistan flag's national emblem represent?,Find information about afghanistan flag,would you like to know the origin of the afghanistan flag,"221    no i would like to know the different colors
+Name: answer, dtype: object",would you like to know if the afghanistan flag has any symbols,"222    Yes, I want to know the history of the war.
+Name: answer, dtype: object",are you interested in the symbolism behind the afghanistan flags design,"223    Yes, I want to know what they mean in general.
+Name: answer, dtype: object"
+222,F0512,Find information on male menopause supplements.,I'm looking for information on male menopause,would you like to know what age men may start male menopause,"224    Yes, tell me more about the history of it
+Name: answer, dtype: object",why are you interested in learning more about male menopause,"225    I'm looking for information on male menopause ...
+Name: answer, dtype: object",are you interested in the differences between male and female menopause,"226    yes
+Name: answer, dtype: object"
+253,F0595,What are the concerns with extracting an abscessed tooth?,What treatments are available for a tooth abscess?,are you looking for pictures of a tooth abscess,"227    No, I want to know about the treatment options.
+Name: answer, dtype: object",do you want to see a selfquiz to determine if you have a tooth abscess,"228    yes i am looking for reviews on the ontario ca...
+Name: answer, dtype: object",do you want to know how a tooth abscess is treated,"Yes, I would like to know about what treatments are available for it."
+233,F0534,What commercial hair dyes are available?,Tell me about hair dye.,would you like to know about hair dye brands,"230    no i want to know about commercial hair dyes
+Name: answer, dtype: object",would you like to know about hair dye colors,"231    Yes
+Name: answer, dtype: object",are you interested in hair dye application or removal,"232    yes
+Name: answer, dtype: object"
+243,F0566,What does the Afghanistan flag's Arabic inscription mean?,Find information about afghanistan flag,do you want to know how many square miles afghanistan is,"233    yes i want to know what the Afghanistan flag's...
+Name: answer, dtype: object",would you like to know where afghanistan is on the map,"234    Yes, I need to know what the Afghanistan flag'...
+Name: answer, dtype: object",are you looking for a map of afghanistan,"235    No, I want to know what the Afghanistan flag's...
+Name: answer, dtype: object"
+215,F0486,Find information about the Maryland Department of Natural Resources police.,Info on maryland department of natural resources,do you want to know what jobs are available at the maryland department of natural resources,"236    yes, and how much is the contribution made by ...
+Name: answer, dtype: object",do you want to know the location of maryland department of natural resources,"237    no i want to know about the jobs available at ...
+Name: answer, dtype: object",are you referring to the the department of natural resources in maryland,"238    Yes, I need to know about the Maryland Departm...
+Name: answer, dtype: object"
+237,F0548,What are some of the causes for a lump in the throat?,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,no i want to know if it is related to menopause,do you wish to see possible causes of a lump in throat,"240    yes, tell me more
+Name: answer, dtype: object",are you interested in the reasons a lump in the throat occurs,"241    Yes, but specifically the causes of it.
+Name: answer, dtype: object"
+253,F0593,What treatments are available for a tooth abscess?,What treatments are available for a tooth abscess?,would you like to learn about home remedies for treating a tooth abscess,"242    yes
+Name: answer, dtype: object",would you like to know the symptoms of a tooth abscess,"243    Yes
+Name: answer, dtype: object",are you interested in the causes of tooth abscesses,"244    Yes, specifically tooth abscesses.
+Name: answer, dtype: object"
+273,F0668,What diet should a person with Wilson's disease follow?,Give me information on wilson's disease.,do you want information on the treatment of wilsons disease,"245    Yes, I would like to know the diet to follow.
+Name: answer, dtype: object",would you like to know about potential cures for wilsons disease,"246    no i want to know diet and exercise
+Name: answer, dtype: object",would you like to know the typical treatment for wilsons disease,"247    Yes
+Name: answer, dtype: object"
+222,F0512,Find information on male menopause supplements.,I'm looking for information on male menopause,are you interested in the differences between male and female menopause,"248    yes i would like to know the symptoms
+Name: answer, dtype: object",are you interested to see male menopause jokes,"249    No, I want to know what male menopause is like.
+Name: answer, dtype: object",why are you interested in learning more about male menopause,"250    I want to know what male menopause is
+Name: answer, dtype: object"
+222,F0510,What is the definition of male menopause?,I'm looking for information on male menopause,would you like to know what age men may start male menopause,"251    No, I would like to know what the definition o...
+Name: answer, dtype: object",why are you interested in learning more about male menopause,"252    I don't know
+Name: answer, dtype: object",are you interested in the differences between male and female menopause,"253    No, I just want to know what male menopause is.
+Name: answer, dtype: object"
+210,F0462,"Compare Bushnell, Callaway and Garmin golf gps systems.",golf gps,would you like to buy a golf gps system,"254    Yes, that would be perfect.
+Name: answer, dtype: object",would you like a comparison of golf gps systems,"255    No, I just want to know if they have gps systems.
+Name: answer, dtype: object",would you like to know how gps systems are used in golf,"256    Yes
+Name: answer, dtype: object"
+215,F0482,Find the phone numbers for units within the Maryland Department of Natural Resources.,Info on maryland department of natural resources,do you want to know the location of maryland department of natural resources,"257    no i want to know the phone numbers for units ...
+Name: answer, dtype: object",would you like to know the responsibilities of the maryland department of natural resources,"258    No.
+Name: answer, dtype: object",are you interested in jobs available in maryland department of natural resources,"Yes, I would like to know where they are located"
+237,F0547,Find information about a lump in the throat caused by the thyroid.,Find me information about a lump in the throat.,would you like to know how to fix a lump in the throat,"No, I would like to know what causes it.",can thyroid problem cause a lump in the throat,no i want to know about symptoms,what type of medical information on lumps in the throat would you like,i want to know about treatment options
+215,F0487,Find Maryland DNR fishing reports.,Info on maryland department of natural resources,do you want to know what jobs are available at the maryland department of natural resources,"263    Yes, that is what I need.
+Name: answer, dtype: object",are you referring to the the department of natural resources in maryland,"264    no i want to know what jobs are available at t...
+Name: answer, dtype: object",what information are you looking for regarding maryland department of natural resources,"265    Yes, that's exactly what I am looking for.
+Name: answer, dtype: object"
+269,F0645,Find information about Marshall County Schools in West Virginia.,Find information about marshall county schools.,which state would you like to find out about in regards to marshall county schools,no i want to know about Marshall County schools,what state are you searching for marshall county schools,I don't know.,would like to know a list of marshall county schools in your state,"No, I would like to know about Marshall County schools in West Virginia."
+215,F0485,What are the dates for Maryland hunting season?,Info on maryland department of natural resources,do you want to know what jobs are available at the maryland department of natural resources,"269    Yes, and how many jobs are available there
+Name: answer, dtype: object",are you referring to the the department of natural resources in maryland,"270    No, I want to know the date of Maryland huntin...
+Name: answer, dtype: object",do you mean the department of natural resources,"271    Yes, but I want to know which jobs are availab...
+Name: answer, dtype: object"
+233,F0535,Find information on making homemade hair dye products.,Tell me about hair dye.,would you like to know about hair dye brands,"272    yes
+Name: answer, dtype: object",would you like to know about hair dye colors,"273    No, I would like to see pictures of the USS Cole.
+Name: answer, dtype: object",are you interested in hair dye color shades,"274    I don't know
+Name: answer, dtype: object"
+253,F0594,What are the dangers/complications of leaving a tooth abscess untreated?,What treatments are available for a tooth abscess?,would you like to learn about home remedies for treating a tooth abscess,"275    no i want to know what causes tooth abscess
+Name: answer, dtype: object",do you want to know how a tooth abscess is treated,"276    no
+Name: answer, dtype: object",are you interested in the causes of tooth abscesses,"277    No, I would like to know what treatments are a...
+Name: answer, dtype: object"
