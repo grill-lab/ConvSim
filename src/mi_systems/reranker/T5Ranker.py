@@ -9,7 +9,7 @@ class T5Ranker(AbstractReranker):
     def __init__(self):
         self.ranker = MonoT5()
     
-    def rerank(self, conversational_turn: ConversationalTurn, max_passages: int=100) -> List[Document]:
+    def rerank(self, conversational_turn: ConversationalTurn, max_passages: int=1000) -> List[Document]:
 
         if len(conversational_turn.ranking) == 0:
             return conversational_turn.ranking
@@ -17,6 +17,9 @@ class T5Ranker(AbstractReranker):
         search_query = conversational_turn.rewritten_utterance if \
             conversational_turn.rewritten_utterance else conversational_turn.user_utterance
         # search_query = conversational_turn.manual_utterance
+        if conversational_turn.user_utterance_type == 'feedback' and conversational_turn.system_response:
+            search_query = f"{conversational_turn.conversation_history[-1]['rewritten_utterance']} {search_query}"
+
         parsed_query = Query(search_query)
         parsed_passagaes = [
             Text(document.doc_text, {'id': document.doc_id}, 0) for document in conversational_turn.ranking

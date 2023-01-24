@@ -1,2 +1,3 @@
 from .GPT3FeedbackProvider import GPT3FeedbackProvider
+from .RandomFeedbackProvider import RandomFeedbackProvider
 from .AbstractFeedbackProvider import AbstractFeedbackProvider

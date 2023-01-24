@@ -2,3 +2,6 @@ from .T5Ranker import T5Ranker
 from .T5CAsTRanker import T5CAsTRanker
 from .CrossEncoderFeedbackRanker import CrossEncoderFeedbackRanker
 from .CrossEncoderFeedbackRankerv2 import CrossEncoderFeedbackRankerv2
+from .T5FeedbackRanker import T5FeedbackRanker
+from .FirstPassT5Ranker import FirstPassT5Ranker
+from .T5RankerStage2 import T5RankerStage2

@@ -1,1 +1,2 @@
 from .CAsTY4DataGenerator import CAsTY4DataGenerator
+from .CAsTY3DataGenerator import CAsTY3DataGenerator

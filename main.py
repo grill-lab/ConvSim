@@ -2,10 +2,10 @@ from src.base_module.Pipelines import Pipeline, RecursivePipeline
 from src.data_generators import CAsTY4DataGenerator
 from src.data_classes.conversational_turn import Document
 from src.simulator.answerCQ import GPT3AnswerCQ
-from src.simulator.provide_feedback import GPT3FeedbackProvider
+from src.simulator.provide_feedback import GPT3FeedbackProvider, RandomFeedbackProvider
 from src.mi_systems.retriever import SparseRetriever
-from src.mi_systems.reranker import T5Ranker, T5CAsTRanker, CrossEncoderFeedbackRanker, CrossEncoderFeedbackRankerv2
-from src.mi_systems.rewriter import T5Rewriter, RocchioFeedbackRewriter, FirstPassT5Rewriter, T5FeedbackRewriter, RM3FeedbackRewriter
+from src.mi_systems.reranker import T5Ranker, T5FeedbackRanker, CrossEncoderFeedbackRanker, CrossEncoderFeedbackRankerv2, FirstPassT5Ranker, T5RankerStage2
+from src.mi_systems.rewriter import T5Rewriter, RocchioFeedbackRewriter, FirstPassT5Rewriter, T5FeedbackRewriter, RM3FeedbackRewriter, QuReTeCRewriter
 from src.mi_systems.response_generator import BARTResponseGenerator
 from src.mi_systems.askCQ import SemanticMatchingAskCQ
 from src.mi_systems.process_answer import AppendAnswerProcessor
@@ -19,25 +19,33 @@ import torch
 torch.cuda.empty_cache()
 
 
-run_name = "t5-rewriter-feedback-cross-encoder-duo-feedback-ranking-three-round"
-base_path = "data/generated_files"
+run_name = "T5+BM25+MonoT5+BART+FeedbackMonoT5-v2-1000"
+base_path = "data/generated_files/utterance-picker"
 transcripts_path = f"{base_path}/{run_name}/transcripts"
 
 data_generator = CAsTY4DataGenerator(
     dataset_path="data/cast/year_4/annotated_topics.json",
     relevance_judgements_path="data/cast/year_4/cast2022.qrel"
 )
-pipeline = RecursivePipeline([
-    FirstPassT5Rewriter(),
-    T5FeedbackRewriter(),
+pipeline = Pipeline([
+    # FirstPassT5Rewriter(),
+    # RocchioFeedbackRewriter(),
+    # QuReTeCRewriter(),
+    T5Rewriter(),
+    # T5FeedbackRewriter(),
     SparseRetriever(
         collection="../data/cast_y4_files/trecweb_index/",
         collection_type="trecweb"),
     T5Ranker(),
-    CrossEncoderFeedbackRankerv2(),
+    # CrossEncoderFeedbackRankerv2(),
     BARTResponseGenerator(),
-    GPT3FeedbackProvider(),
-], min_ndcg=0.5, max_feedback_rounds=3)
+    # GPT3FeedbackProvider(),
+    RandomFeedbackProvider(),
+    # T5FeedbackRanker(),
+    # CrossEncoderFeedbackRanker()
+    T5RankerStage2(),
+    # T5FeedbackRanker()
+])
 
 
 Path(transcripts_path).mkdir(parents=True, exist_ok=True)

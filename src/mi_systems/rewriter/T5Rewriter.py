@@ -9,9 +9,13 @@ class T5Rewriter(AbstractRewriter):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.model = AutoModelForSeq2SeqLM.from_pretrained(
             "castorini/t5-base-canard"
+            # 'models/t5_base_canard-all-samples-lr-1e-3-1-epoch/checkpoint-1000'
+
         ).to(self.device)
         self.tokenizer = AutoTokenizer.from_pretrained(
-            "castorini/t5-base-canard")
+            "castorini/t5-base-canard"
+            # 'models/t5_base_canard-all-samples-lr-1e-3-1-epoch/checkpoint-1000', truncation_side='left'
+        )
 
     def rewrite(self, conversational_turn: ConversationalTurn) -> str:
         previous_utterances = [turn['utterance']
