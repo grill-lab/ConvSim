@@ -5,3 +5,4 @@ from .RM3FeedbackRewriter import RM3FeedbackRewriter
 from .RocchioFeedbackRewriter import RocchioFeedbackRewriter
 from .FirstPassT5Rewriter import FirstPassT5Rewriter
 from .QuReTeCRewriter import QuReTeCRewriter
+from .DiscourseAwareFeedbackRewriter import DiscourseAwareFeedbackRewriter

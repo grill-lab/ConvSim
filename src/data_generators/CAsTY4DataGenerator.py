@@ -8,7 +8,7 @@ from src.data_classes import ConversationalTurn
 
 class CAsTY4DataGenerator(AbstractConversationalDataGenerator):
 
-    def __init__(self, dataset_path: str, relevance_judgements_path: str) :
+    def __init__(self, dataset_path: str, relevance_judgements_path: str):
         with open(dataset_path) as cast_y4_topics_file:
             self.topics = json.load(cast_y4_topics_file)
 

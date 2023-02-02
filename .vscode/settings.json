@@ -1,5 +1,6 @@
 {
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "search.useGlobalIgnoreFiles": true
+    "search.useGlobalIgnoreFiles": true,
+    "python.linting.pylintEnabled": false
 }

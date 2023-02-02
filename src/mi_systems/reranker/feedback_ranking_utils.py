@@ -1,12 +1,18 @@
 from pygaggle.rerank.transformer import MonoT5
-from pygaggle.model.tokenize import QueryDocumentBatchTokenizer, QueryDocumentBatch, QueryDocumentBatchTokenizer
+from pygaggle.model.tokenize import QueryDocumentBatchTokenizer, QueryDocumentBatch, QueryDocumentBatchTokenizer, T5BatchTokenizer
 from pygaggle.rerank.base import Query, Text
-from pygaggle.model import greedy_decode
-from transformers import AutoTokenizer
+from pygaggle.model import greedy_decode, T5BatchTokenizer
+from transformers import AutoTokenizer, T5ForConditionalGeneration, AutoModelForSeq2SeqLM
 from typing import List, Iterable
 from dataclasses import dataclass
 from copy import deepcopy
 import torch
+import os
+
+# os.environ["RANK"] = str(0)
+# os.environ["WORLD_SIZE"] = str(2)
+# os.environ["MASTER_ADDR"] = "localhost"
+# os.environ["MASTER_PORT"] = "12345"
 
 
 @dataclass
@@ -80,3 +86,28 @@ class FeedbackMonoT5(MonoT5):
                 doc.score = score
 
         return texts
+
+
+class FastMonoT5(MonoT5):
+
+    @staticmethod
+    def get_model(pretrained_model_name_or_path: str, *args, device: str = None, **kwargs) -> T5ForConditionalGeneration:
+        device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
+        device = torch.device(device)
+        model = AutoModelForSeq2SeqLM.from_pretrained(pretrained_model_name_or_path,
+                                                          *args, **kwargs).to(device).eval()
+        # if torch.cuda.device_count() > 1:
+        # torch.cuda.set_device(0)
+        # torch.distributed.init_process_group(backend='nccl')
+        model = torch.nn.DataParallel(model, device_ids=[0, 1])
+        
+        model = model.to(device).eval()
+        return model
+    
+    @staticmethod
+    def get_tokenizer(pretrained_model_name_or_path: str,
+                      *args, batch_size: int =16, **kwargs) -> T5BatchTokenizer:
+        return T5BatchTokenizer(
+            AutoTokenizer.from_pretrained(pretrained_model_name_or_path, use_fast=False, *args, **kwargs),
+            batch_size=batch_size
+        )

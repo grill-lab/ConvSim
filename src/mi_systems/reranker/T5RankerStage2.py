@@ -6,13 +6,12 @@ from typing import List
 
 
 class T5RankerStage2(T5Ranker):
-
-    def __init__(self):
-        self.ranker = MonoT5(
-            pretrained_model_name_or_path="models/t5-base-msmarco-10k-cast-y4-annotated-feedback-first-1-epochs-concat-query+feedback/checkpoint-2000",
-            token_false = '▁false',
-            token_true = '▁true'
-        )
     
-    def rerank(self, conversational_turn: ConversationalTurn, max_passages: int = 1000) -> List[Document]:
-        return super().rerank(conversational_turn, max_passages)
+    def rerank(self, conversational_turn: ConversationalTurn, max_passages: int = 100) -> List[Document]:
+        # if len(conversational_turn.ranking) > 0:
+        #     old_passges = conversational_turn.ranking[max_passages:]
+        #     return super().rerank(conversational_turn, max_passages) + old_passges
+        # else:
+        #     return conversational_turn.ranking
+        old_passges = conversational_turn.ranking[max_passages:]
+        return super().rerank(conversational_turn, max_passages) + old_passges

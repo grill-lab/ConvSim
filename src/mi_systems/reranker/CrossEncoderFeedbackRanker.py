@@ -15,19 +15,22 @@ class CrossEncoderFeedbackRanker(AbstractReranker):
         self.tokenizer = AutoTokenizer.from_pretrained(
             'cross-encoder/ms-marco-MiniLM-L-12-v2')
         
-    def rerank(self, conversational_turn: ConversationalTurn, max_passages: int=1000, batch_size=64) -> List[Document]:
+    def rerank(self, conversational_turn: ConversationalTurn, max_passages: int=100, batch_size=64) -> List[Document]:
         
         if len(conversational_turn.ranking) == 0:
             return conversational_turn.ranking
         
         feedback = conversational_turn.user_utterance
         query = conversational_turn.conversation_history[-1]['rewritten_utterance']
+        old_passages = conversational_turn.ranking[max_passages:]
         conversational_turn.ranking = conversational_turn.ranking[:max_passages]
 
-        passages = [f'{feedback} [SEP] {passage.doc_text}' for passage in conversational_turn.ranking]
+        # passages = [f'{feedback} [SEP] {passage.doc_text}' for passage in conversational_turn.ranking]
         # passages = [passage.doc_text for passage in conversational_turn.ranking]
-        query_list = [query] * len(passages)
+        passages = [passage.doc_text if passage.doc_text else '' for passage in conversational_turn.ranking]
+        # query_list = [query] * len(passages)
         # query_list = [feedback] * len(passages)
+        query_list = [f'{query} {feedback}'] * len(passages)
         all_scores = []
 
         for i in range(0, len(conversational_turn.ranking), batch_size):
@@ -45,4 +48,4 @@ class CrossEncoderFeedbackRanker(AbstractReranker):
         for passage, score in zip(conversational_turn.ranking, all_scores):
             passage.score = score
         
-        return sorted(conversational_turn.ranking, key=lambda passage: passage.score, reverse=True)
+        return sorted(conversational_turn.ranking, key=lambda passage: passage.score, reverse=True) + old_passages
