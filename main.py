@@ -16,7 +16,7 @@ from tqdm import tqdm
 
 
 run_name = "semantic_cq"
-base_path = "data/generated_files"
+base_path = "data/generated_conversations"
 output_path = f"{base_path}/{run_name}/transcripts"
 
 data_generator = CAsTY4DataGenerator(
