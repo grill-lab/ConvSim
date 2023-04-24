@@ -3,8 +3,9 @@ echo "Downloading datasets..."
 
 echo "Downloading CAsT Y4..."
 wget -c https://raw.githubusercontent.com/daltonj/treccastweb/master/2022/2022_evaluation_topics_flattened_duplicated_v1.0.json -P data/cast/year_4
-wget -c https://raw.githubusercontent.com/daltonj/treccastweb/master/2022/cast2022.qrel -P data/cast/year_4
+wget -c https://raw.githubusercontent.com/paulowoicho/treccastweb/master/2022/cast2022.qrel -P data/cast/year_4
 wget -c https://raw.githubusercontent.com/daltonj/treccastweb/master/2022/2022_mixed_initiative_question_pool.json -P data/cast/year_4
+wget -c https://raw.githubusercontent.com/paulowoicho/treccastweb/master/2022/annotated_topics.json -P data/cast/year_4
 
 # download index subset, extract, and delete
 echo "Downloading a subset of the CAsT Y4 index..."

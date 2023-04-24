@@ -30,7 +30,7 @@ pipeline = RecursivePipeline([
     GPT3AnswerCQ(),
     AppendAnswerProcessor(),
     SparseRetriever(
-        collection="../data/cast/year_4/indexes/",
+        collection="data/cast/year_4/indexes/content/files/index/sparse/",
         collection_type="json"),
     T5Ranker(),
     BARTResponseGenerator(),
