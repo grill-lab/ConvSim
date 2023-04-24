@@ -44,6 +44,17 @@ Run.
 python main.py
 ```
 
+## Citation
+If you find our code or dataset useful, please cite us!
+```
+@inproceedings{owoicho2023convsim,
+ title={Exploiting Simulated User Feedback for Conversational Search: Ranking, Rewriting, and Beyond},
+ author={Owoicho, Paul and Sekulic, Ivan and Alianejadi, Mohammad and Dalton, Jeffery and Crestani, Fabio},
+ booktitle={Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+ year={2023}
+}
+```
+
 ## Future Work
 
 We intend on turning this framework into a python package that anyone can experiment with.
