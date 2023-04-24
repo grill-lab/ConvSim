@@ -32,6 +32,12 @@ Download CAsT benchmark and other necessary artifacts like a subset of the index
 bash setup.sh
 ```
 
+Create a `.env` file with your openai API key. It should look something like:
+```
+# API Key for GPT3
+OPENAI_API_KEY="api_key"
+```
+
 Run.
 
 ```
@@ -40,4 +46,5 @@ python main.py
 
 ## Future Work
 
-We intend on turning this framework into a python package that anyone can experiment with. 
+We intend on turning this framework into a python package that anyone can experiment with.
+This package will help us demo the utility of this framework to non-conversational IR datasets.
