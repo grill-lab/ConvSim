@@ -26,6 +26,7 @@ class ConversationalTurn:
     # One of: ["clarifying_question", "response"]
     system_response_type: str = None
     feedback_rounds: int = 0
+    user_preferences: List[str] = field(default_factory=list)
 
     def update_history(
         self,

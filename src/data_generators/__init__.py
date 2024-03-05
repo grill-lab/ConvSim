@@ -1,1 +1,3 @@
 from .CAsTY4DataGenerator import CAsTY4DataGenerator
+from .iKATDataGenerator import IKATDataGenerator
+from .CanardDataGenerator import CanardDataGenerator

@@ -25,7 +25,7 @@ class SparseRetriever(AbstractRetriever):
         parsed_passages = self._parse_search_results(search_results)
         return parsed_passages
     
-    def _parse_search_results(self, search_results) -> List[Document]:
+    def _parse_search_results(self, search_results, sep=":") -> List[Document]:
         parsed_passages = []
         if self.collection_type == "json":
             for search_result in search_results:
@@ -33,7 +33,7 @@ class SparseRetriever(AbstractRetriever):
                 passages = parsed_search_result["passage_splits"]
                 for passage in passages:
                     parsed_passage = Document(
-                        doc_id= f"{search_result.docid}-{passage['id']}",
+                        doc_id= f"{search_result.docid}{sep}{passage['id']}",
                         doc_text=passage["body"],
                         score=search_result.score
                     )
@@ -44,8 +44,8 @@ class SparseRetriever(AbstractRetriever):
                 passages = parsed_search_result.find_all("passage")
                 for passage in passages:
                     parsed_passage = Document(
-                        doc_id= f"{search_result.docid}-{passage['id']}",
-                        doc_text=passage.text,
+                        doc_id= f"{search_result.docid}{sep}{passage['id']}",
+                        doc_text=passage.text.strip(),
                         score=search_result.score
                     )
                     parsed_passages.append(parsed_passage)

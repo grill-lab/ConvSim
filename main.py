@@ -1,65 +1,72 @@
-from src.base_module.Pipelines import Pipeline, RecursivePipeline
-from src.data_generators import CAsTY4DataGenerator
-from src.data_classes.conversational_turn import Document
-from src.simulator.answerCQ import GPT3AnswerCQ
-from src.simulator.provide_feedback import GPT3FeedbackProvider
-from src.mi_systems.retriever import SparseRetriever
-from src.mi_systems.reranker import T5Ranker
-from src.mi_systems.rewriter import T5Rewriter
-from src.mi_systems.response_generator import BARTResponseGenerator
-from src.mi_systems.askCQ import SemanticMatchingAskCQ
-from src.mi_systems.process_answer import AppendAnswerProcessor
-
-from pathlib import Path
+"""Entry Point for Experiments"""
 import json
+import shelve
+from pathlib import Path
+
+from experimental_pipelines import tuned_llama_rewriter_with_openai_simulator as pipeline
+from src.data_generators import IKATDataGenerator, CAsTY4DataGenerator, CanardDataGenerator
 from tqdm import tqdm
+from transformers import logging
 
+logging.set_verbosity_error()
 
-run_name = "semantic_cq"
+run_name = "tuned_llama_canard_rewriter_with_tuned_llama_simulator"
 base_path = "data/generated_conversations"
 output_path = f"{base_path}/{run_name}/transcripts"
 
-data_generator = CAsTY4DataGenerator(
-    dataset_path="data/cast/year_4/annotated_topics.json",
-    relevance_judgements_path="data/cast/year_4/cast2022.qrel"
+data_generator = IKATDataGenerator(
+    dataset_path="../data/datasets/ikat/2023_test_topics.json",
+    relevance_judgements_path="../data/datasets/ikat/2023-qrels.all-turns.txt"
 )
-pipeline = RecursivePipeline([
-    T5Rewriter(),
-    SemanticMatchingAskCQ(
-        "data/cast/year_4/2022_mixed_initiative_question_pool.json"),
-    GPT3AnswerCQ(),
-    AppendAnswerProcessor(),
-    SparseRetriever(
-        collection="data/cast/year_4/indexes/content/files/index/sparse/",
-        collection_type="json"),
-    T5Ranker(),
-    BARTResponseGenerator(),
-    GPT3FeedbackProvider()
-])
-
+# data_generator = CAsTY4DataGenerator(
+#     dataset_path="../data/datasets/cast/year_4/annotated_topics.json",
+#     relevance_judgements_path="../data/datasets/cast/year_4/cast2022.qrel"
+# )
+# data_generator = CanardDataGenerator(dataset_path="../data/datasets/canard/train.json")
+pipeline = pipeline()
 
 Path(output_path).mkdir(parents=True, exist_ok=True)
+existing_transcripts = [f.stem for f in Path(output_path).iterdir()]
 
-for conversational_turn in tqdm(data_generator.get_turn(), total=205):
-    conversational_turn = pipeline(conversational_turn)
-    turn_transcript = []
-    for turn in conversational_turn.conversation_history:
-        turn_transcript.append({
-            "participant": turn["participant"],
-            "utterance": turn["utterance"],
-            "type": turn["utterance_type"]
-        })
-    turn_transcript.extend([
-        {"participant": "System", "utterance": conversational_turn.system_response,
-            "type": conversational_turn.system_response_type},
-        {"participant": "User", "utterance": conversational_turn.user_utterance,
-            "type": conversational_turn.user_utterance_type}
-    ])
+with shelve.open(f"{base_path}/{run_name}/turns_db") as db:
+    for conversational_turn in tqdm(data_generator.get_turn(), total=332):
+        ##########################################################
+        # Skip if already processed to save time.
+        if conversational_turn.turn_id in db and conversational_turn.turn_id in existing_transcripts:
+            continue
+        ##########################################################
+        conversational_turn = pipeline(conversational_turn)
+        turn_transcript = [
+            {
+                "participant": turn["participant"],
+                "utterance": turn["utterance"],
+                "type": turn["utterance_type"]
+            } for turn in conversational_turn.conversation_history
+        ]
+        
+        user_dict = {
+            "participant": "User", 
+            "utterance": conversational_turn.user_utterance,
+            "type": conversational_turn.user_utterance_type
+        }
 
-    with open(f"{output_path}/{conversational_turn.turn_id}.json", "w") as f:
-        json.dump(turn_transcript, f, indent=4, ensure_ascii=False)
+        system_dict = {
+            "participant": "System", 
+            "utterance": conversational_turn.system_response,
+            "type": conversational_turn.system_response_type
+        }
 
-    with open(f"{base_path}/{run_name}.run", "a") as f:
-        for index, document in enumerate(conversational_turn.ranking):
-            f.write(
-                f"{conversational_turn.turn_id}\tQ0\t{document.doc_id}\t{index+1}\t{document.score}\t{run_name}\n")
+        if len(conversational_turn.conversation_history) % 2 == 0:
+            turn_transcript.extend([user_dict, system_dict])
+        else:
+            turn_transcript.extend([system_dict, user_dict])
+
+        with open(f"{output_path}/{conversational_turn.turn_id}.json", "w") as f:
+            json.dump(turn_transcript, f, indent=4, ensure_ascii=False)
+
+        db[conversational_turn.turn_id] = conversational_turn
+
+        with open(f"{base_path}/{run_name}/{run_name}.run", "a") as f:
+            for index, document in enumerate(conversational_turn.ranking):
+                f.write(
+                    f"{conversational_turn.turn_id}\tQ0\t{document.doc_id}\t{index+1}\t{document.score}\t{run_name}\n")

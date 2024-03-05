@@ -10,15 +10,18 @@ class BARTResponseGenerator(AbstractRespnseGenerator):
         self.summariser = pipeline(
             "summarization", 
             model="facebook/bart-large-cnn", 
-            device=-1 if not torch.cuda.is_available() else 0
+            # change depending on GPU availability
+            device=-1 if not torch.cuda.is_available() else 2
+            # device=-1 if not torch.cuda.is_available() else 3
+            # device_map="auto"
         )
     
     def generate_response(self, conversational_turn: ConversationalTurn, k=3) -> str:
         top_passages = '\n'.join([document.doc_text for document in conversational_turn.ranking[:k]])
         output = self.summariser(
             top_passages, 
-            max_length=200, 
-            min_length=30, 
+            max_length=256, 
+            min_length=32, 
             do_sample=False,
             truncation=True
         )

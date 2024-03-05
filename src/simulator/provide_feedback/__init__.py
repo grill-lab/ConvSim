@@ -1,2 +1,6 @@
 from .GPT3FeedbackProvider import GPT3FeedbackProvider
 from .AbstractFeedbackProvider import AbstractFeedbackProvider
+from .TunedLlama2FeedbackProvider import TunedLlama2FeedbackProvider
+from .HumanFeedbackProvider import HumanFeedbackProvider
+from .PromptedLlama2FeedbackProvider import PromptedLlama2FeedbackProvider
+from .OpenAIFeedbackProvider import OpenAIFeedbackProvider

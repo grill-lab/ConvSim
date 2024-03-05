@@ -9,7 +9,8 @@ class T5Ranker(AbstractReranker):
     def __init__(self):
         self.ranker = MonoT5()
     
-    def rerank(self, conversational_turn: ConversationalTurn, max_passages: int=100) -> List[Document]:
+    def rerank(self, conversational_turn: ConversationalTurn, 
+               max_passages: int=1000) -> List[Document]:
 
         if len(conversational_turn.ranking) == 0:
             return conversational_turn.ranking
