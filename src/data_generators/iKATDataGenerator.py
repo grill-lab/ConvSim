@@ -4,6 +4,7 @@ from .AbstractConversationalDataGenerator import (
 import json
 from ir_measures import read_trec_qrels
 from src.data_classes import ConversationalTurn
+from typing import Generator
 
 
 class IKATDataGenerator(AbstractConversationalDataGenerator):
@@ -14,7 +15,7 @@ class IKATDataGenerator(AbstractConversationalDataGenerator):
 
         self.qrels = list(read_trec_qrels(relevance_judgements_path))
     
-    def get_turn(self) -> ConversationalTurn:
+    def get_turn(self) -> Generator[ConversationalTurn, None, None]:
         parsed_turns = set()
         for topic in self.topics:
             ptkbs = topic.get("ptkb")

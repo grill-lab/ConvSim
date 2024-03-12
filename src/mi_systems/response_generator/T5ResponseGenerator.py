@@ -6,7 +6,9 @@ from .AbstractResponseGenerator import AbstractRespnseGenerator
 
 class T5ResponseGenerator(AbstractRespnseGenerator):
 
-    def __init__(self, model_path: str = "../data/models/t5-base-respond/") -> None:
+    def __init__(self,
+                 model_path: str = "../../data/models/t5-response-generator/"
+                 ) -> None:
         self.summariser = pipeline(
             "text2text-generation", 
             model=model_path, 
@@ -15,11 +17,11 @@ class T5ResponseGenerator(AbstractRespnseGenerator):
         )
     
     def generate_response(self, conversational_turn: ConversationalTurn) -> ConversationalTurn:
-        parsed_passages = "Summarize: " + self.__parse_passages(conversational_turn)
+        parsed_passages = "Summarize: " + self.__parse_passages(
+            conversational_turn)
         # Generate the rewrite.
         return self.summariser(
-            parsed_passages, max_length=512, 
-            prompt_lookup_num_tokens=10)[0]['generated_text']
+            parsed_passages, max_length=512)[0]['generated_text']
 
     def __parse_passages(self, conversational_turn: ConversationalTurn) -> str:
         """Format the passages for inference."""

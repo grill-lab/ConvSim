@@ -7,3 +7,4 @@ from .ComboRewriter import ComboRewriter
 from .Llama2Rewriter import Llama2Rewriter
 from .TunedLlama2Rewriter import TunedLlama2Rewriter
 from .QuReTeCRewriter import QuReTeCRewriter
+from .GPT3TurboRewriterAndEditor import GPT3TurboRewriterAndEditor

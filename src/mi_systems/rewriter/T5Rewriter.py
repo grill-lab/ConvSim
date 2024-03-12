@@ -16,7 +16,7 @@ class T5Rewriter(AbstractRewriter):
     def rewrite(self, conversational_turn: ConversationalTurn) -> str:
         context = self.__parse_conversation(conversational_turn)
         rewrite = self.rewriter(
-            context, max_length=256, repetition_penalty=2.5, prompt_lookup_num_tokens=10,
+            context, max_length=256, repetition_penalty=2.5,
             length_penalty=1.0, early_stopping=True)[0]['generated_text']
 
         return rewrite
